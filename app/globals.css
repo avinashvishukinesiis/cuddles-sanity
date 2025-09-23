@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@font-face {
+    font-family: "Ohno Softie";
+    src: url("/fonts/OhnoSoftieVariable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --color-purple: #9769A5;
+    --color-blue: #4AA6B1;
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --font-ohno: "Ohno Softie", system-ui, sans-serif;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+        --font-ohno: "Ohno Softie", system-ui, sans-serif;
+    }
+}
+
+.hero-bg {
+    background-image: url('/Hero_image.png');
+}
+
+.about-hero-bg {
+    background-image: url('/About_hero_image.jpg');
+}
+
+.curriculum-hero-bg {
+    background-image: url('/classroom.jpg');
+}
+
+.assistance-hero-bg {
+    background-image: url('/assitance_hero_image.jpg');
+}
+
+.contactroom-hero-bg {
+    background-image: url('/contactroom.jpg');
+}
+
+.hallroom-hero-bg {
+    background-image: url('/hallroom.jpg');
+}

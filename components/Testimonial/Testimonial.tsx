@@ -4,8 +4,14 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { Testimonial as TestimonialType } from "@/lib/types"
+import { urlFor } from "@/lib/sanity"
 
-const testimonials = [
+interface TestimonialProps {
+    testimonials?: TestimonialType[]
+}
+
+const defaultTestimonials = [
     {
         id: 1,
         name: "Sandeep Joshi",
@@ -29,7 +35,17 @@ const testimonials = [
     },
 ]
 
-export default function Testimonial() {
+export default function Testimonial({ testimonials: sanityTestimonials }: TestimonialProps) {
+    // Use Sanity testimonials if available, otherwise use default ones
+    const testimonials = sanityTestimonials && sanityTestimonials.length > 0
+        ? sanityTestimonials.map((t, index) => ({
+            id: t._id || `testimonial-${index}`,
+            name: t.name,
+            desiganation: t.role,
+            quote: t.content,
+            img: t.image ? urlFor(t.image).url() : "/test1.png",
+        }))
+        : defaultTestimonials
     const [currentIndex, setIndex] = useState(0)
 
     const nextSlide = () => {

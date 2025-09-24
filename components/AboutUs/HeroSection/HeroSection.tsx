@@ -1,6 +1,18 @@
 import React from 'react'
+import { AboutUs } from '@/lib/types'
 
-const HeroSection = () => {
+interface HeroSectionProps {
+    aboutData?: AboutUs | null
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ aboutData }) => {
+    const defaultData = {
+        heroTitle: "Driven by purpose and care",
+        heroDescription: "Founded in 2008, Cuddles Preschool has evolved into a trusted space for early learning, where happy, confident, and independent children thrive. Over the years, we've nurtured hundreds of little learners and witnessed their incredible journeys—each child's growth is a story that continues to inspire us."
+    }
+
+    const content = aboutData || defaultData
+
     return (
         <section className='relative h-max'>
             {/* Hero with background */}
@@ -22,11 +34,12 @@ const HeroSection = () => {
             {/* Next section */}
             <div className="w-full h-max bg-white flex items-center justify-center pt-8">
                 <div className='w-full px-4 md:px-0 md:w-[60vw] flex flex-col gap-8'>
-                    <h2 className='font-extrabold text-3xl md:text-7xl text-[#9769A5]  text-center'>Driven by purpose and care </h2>
+                    <h2 className='font-extrabold text-3xl md:text-7xl text-[#9769A5] text-center'>
+                        {content.heroTitle}
+                    </h2>
                     <p className='text-[18px] font-medium text-center text-[#9769A5]'>
-                        Founded in 2008, Cuddles Preschool has evolved into a trusted space for early learning, where happy, confident, and independent children thrive. Over the years, we’ve nurtured hundreds of little learners and witnessed their incredible journeys—each child’s growth is a story that continues to inspire us.
+                        {content.heroDescription}
                     </p>
-                  
                 </div>
             </div>
         </section>

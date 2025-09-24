@@ -5,19 +5,22 @@ import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
 import Include from "@/components/HomePage/Include/Include";
 import LetsConnect from "@/components/LetsConnect/letsConnect";
 import Testimonial from "@/components/Testimonial/Testimonial";
+import { getHeroSection, getTestimonials } from "@/lib/sanity-utils";
 
+export default async function Home() {
+  const [heroData, testimonials] = await Promise.all([
+    getHeroSection(),
+    getTestimonials()
+  ]);
 
-
-
-export default function Home() {
   return (
      <div className="flex flex-col gap-[20px] font-ohno">
-      <HeroSection/>
+      <HeroSection heroData={heroData} />
       <EarlyEducationSection/>
       <CuddlesProgram/>
       <ActivityZone/>
       <Include/>
-      <Testimonial/>
+      <Testimonial testimonials={testimonials} />
       <LetsConnect/>
      </div>
   );

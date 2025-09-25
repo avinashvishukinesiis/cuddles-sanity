@@ -29,8 +29,8 @@ export const contact = defineType({
       ]
     },
     {
-      name: 'locationsSection',
-      title: 'Locations Section',
+      name: 'locationSection',
+      title: 'Location Section',
       type: 'object',
       fields: [
         {

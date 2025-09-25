@@ -101,8 +101,8 @@ export const safety = defineType({
           type: 'text'
         },
         {
-          name: 'emergencyItems',
-          title: 'Emergency Care Items',
+          name: 'emergencyFeatures',
+          title: 'Emergency Features',
           type: 'array',
           of: [{
             type: 'object',
@@ -146,8 +146,8 @@ export const safety = defineType({
           initialValue: 'Healthy Habits Start Early'
         },
         {
-          name: 'healthyHabitsItems',
-          title: 'Healthy Habits Items',
+          name: 'healthyFeatures',
+          title: 'Healthy Habits Features',
           type: 'array',
           of: [{
             type: 'object',

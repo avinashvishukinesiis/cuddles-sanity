@@ -5,6 +5,8 @@ import Footer from "@/components/Footer/Footer";
 import MotionWrapper from "@/components/MotionWrapper";
 import NavBar from "@/components/NavBar/Navbar";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { initializeAutoCompact } from "@/lib/auto-compact";
 
 
 type RootLayoutClientProps = {
@@ -14,12 +16,26 @@ type RootLayoutClientProps = {
 export default function RootLayoutClient({ children }: RootLayoutClientProps) {
     const pathname = usePathname();
 
+    // Initialize AutoCompact system on client side
+    useEffect(() => {
+        const initializeSystem = async () => {
+            try {
+                await initializeAutoCompact('production');
+                console.log('[AutoCompact] System initialized successfully');
+            } catch (error) {
+                console.error('[AutoCompact] Initialization failed:', error);
+            }
+        };
+
+        initializeSystem();
+    }, []);
+
     const noHeaderFooterRoutes = ["/studio"];
     const shouldShowHeaderFooter = !noHeaderFooterRoutes.some(route =>
         pathname.startsWith(route)
     );
 
-    const shouldShowFAQ = pathname.toLowerCase() !== "/partnerships"; 
+    const shouldShowFAQ = pathname.toLowerCase() !== "/partnerships";
 
     return (
         <>

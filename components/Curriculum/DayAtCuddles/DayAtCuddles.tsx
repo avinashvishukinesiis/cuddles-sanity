@@ -1,51 +1,50 @@
 import React from 'react'
+import { Curriculum } from '@/lib/types'
 
-const DayAtCuddle = () => {
+interface DayAtCuddlesProps {
+    curriculumData?: Curriculum | null
+}
 
-    const content = [
-        {
+const DayAtCuddles: React.FC<DayAtCuddlesProps> = ({ curriculumData }) => {
+    const defaultData = {
+        dayAtCuddlesSection: {
+            title: "A Day at Cuddles",
+            description: "Every day at Cuddles follows a rhythm designed to comfort, inspire, and engage. Here's what a typical day looks like",
+            dailySchedule: [
+                {
+                    timeSlot: "9:00 - 9:30 AM Warm Welcome And Movement",
+                    description: "The day begins with greetings, prayer, yoga, and light exercises to help children feel settled and energised."
+                },
+                {
+                    timeSlot: "9:30 AM - 11:00 AM Learning Time",
+                    description: "Children explore academic concepts, language, and early literacy through Montessori tools, stories, rhymes, and hands-on activities."
+                },
+                {
+                    timeSlot: "11:00 AM - 12:30 PM Creative Play and Outdoor Fun",
+                    description: "New ideas and topics are introduced through stories, play, and interactive tools that spark curiosity."
+                },
+                {
+                    timeSlot: "12:30 PM Preschool hours conclude",
+                    description: "Children enrolled in our Day Care or Extended Day Care program continue with a peaceful, balanced routine for the rest of the day."
+                },
+                {
+                    timeSlot: "12:30 PM - 1:30 PM Lunch and Wind Down",
+                    description: "Children enjoy their home-packed lunch, freshen up, and ease into a restful afternoon."
+                },
+                {
+                    timeSlot: "1:30 PM - 3:30 PM Nap and Quiet Time",
+                    description: "A calm nap period helps children recharge in a cozy, supervised environment."
+                },
+                {
+                    timeSlot: "3:30 PM - 6:30 PM Enrichment and Wrap-Up",
+                    description: "Evenings include reading, drama, music, indoor games, and time to unwind before heading home."
+                }
+            ]
+        }
+    }
 
-            point: "9:00 - 9:30 AM Warm Welcome And Movement",
-            description:
-                "The day begins with greetings, prayer, yoga, and light exercises to help children feel settled and energised.",
-        },
-        {
-
-            point: "9:30 AM - 11:00 AM Learning Time",
-            description:
-                "Children explore academic concepts, language, and early literacy through Montessori tools, stories, rhymes, and hands-on activities.",
-        },
-        {
-
-            point: "11:00 AM - 12:30 PM Creative Play and Outdoor Fun",
-            description:
-                "New ideas and topics are introduced through stories, play, and interactive tools that spark curiosity.",
-        },
-        {
-
-            point: "12:30 PM Preschool hours conclude",
-            description:
-                "Children enrolled in our Day Care or Extended Day Care program continue with a peaceful, balanced routine for the rest of the day.",
-        },
-        {
-
-            point: "12:30 PM - 1:30 PM Lunch and Wind Down",
-            description:
-                "Children enjoy their home-packed lunch, freshen up, and ease into a restful afternoon.",
-        },
-        {
-
-            point: "1:30 PM - 3:30 PM Nap and Quiet Time",
-            description:
-                "A calm nap period helps children recharge in a cozy, supervised environment.",
-        },
-        {
-
-            point: "3:30 PM - 6:30 PM Enrichment and Wrap-Up",
-            description:
-                "Evenings include reading, drama, music, indoor games, and time to unwind before heading home.",
-        },
-    ];
+    const dayAtCuddlesData = curriculumData?.dayAtCuddlesSection || defaultData.dayAtCuddlesSection
+    const scheduleItems = dayAtCuddlesData.dailySchedule || defaultData.dayAtCuddlesSection.dailySchedule
 
 
     return (
@@ -56,21 +55,20 @@ const DayAtCuddle = () => {
                     <h2
                         className="text-center text-balance text-5xl relative inline font-extrabold"
                     >
-                        A Day at Cuddles
+                        {dayAtCuddlesData.title}
                     </h2>
                     <p className="text-center text-balance text-2xl relative font-medium">
-                        Every day at Cuddles follows a rhythm designed to comfort, inspire, and engage.
-                        Here’s what a typical day looks like
+                        {dayAtCuddlesData.description}
                     </p>
                 </header>
                 <div className='w-fit flex flex-col gap-4 md:gap-8'>
                     {
-                        content.map((item, ind) => {
+                        scheduleItems.map((item: { timeSlot: string; description: string }, ind: number) => {
                             return (
                                 <div key={ind} className='flex items-center gap-4 text-white text-2xl max-w-[600px]'>
                                     <span className='min-w-11 min-h-11 flex items-center justify-center rounded-full bg-white text-[#4AA6B1] font-extrabold'>{ind + 1}</span>
                                     <div>
-                                        <p className='font-extrabold'>{item.point}</p>
+                                        <p className='font-extrabold'>{item.timeSlot}</p>
                                         <p className='text-[16px]'>{item.description}</p>
                                     </div>
                                 </div>
@@ -84,4 +82,4 @@ const DayAtCuddle = () => {
     )
 }
 
-export default DayAtCuddle
+export default DayAtCuddles

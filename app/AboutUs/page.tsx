@@ -13,7 +13,7 @@ const AboutUs = async () => {
       <HeroSection aboutData={aboutUsData} />
       <VissionAndMission aboutData={aboutUsData} />
       <AboutCEO aboutData={aboutUsData} />
-      <LetsConnect/>
+      <LetsConnect aboutUsData={aboutUsData} />
      </div>
   )
 }

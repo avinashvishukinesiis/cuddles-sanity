@@ -1,6 +1,5 @@
 import React from 'react'
 import { Assistance } from '@/lib/types'
-import { urlFor } from '@/lib/sanity'
 
 interface HeroSectionProps {
     assistanceData?: Assistance | null
@@ -23,9 +22,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ assistanceData }) => {
 
     const heroData = assistanceData?.heroSection || defaultData.heroSection
 
-    const backgroundImageUrl = heroData.backgroundImage
-        ? urlFor(heroData.backgroundImage).url()
-        : null;
+    // Background image available but using CSS class instead
+    // const backgroundImageUrl = heroData.backgroundImage
+    //     ? urlFor(heroData.backgroundImage).url()
+    //     : null;
     return (
         <section className='relative h-max'>
             {/* Hero with background */}

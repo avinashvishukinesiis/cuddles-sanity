@@ -31,7 +31,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroData }) => {
                 }}
             >
                 {!heroData?.backgroundImage && (
-                    <div className="w-full h-full hero-bg bg-cover bg-center bg-no-repeat" />
+                    <div
+                        className="w-full h-full bg-cover bg-center bg-no-repeat"
+                        style={{ backgroundImage: "url('/Hero_image.png')" }}
+                    />
                 )}
 
                 {/* Responsive Wave */}

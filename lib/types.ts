@@ -95,6 +95,34 @@ export interface SiteSettings {
   }
 }
 
+export interface HomePage {
+  _id: string
+  _type: 'homePage'
+  heroSection: HeroSection
+  earlyEducationSection: {
+    title: string
+    description: string
+    features: Array<{
+      title: string
+    }>
+    image?: SanityImageSource
+  }
+  testimonialsSection: {
+    title: string
+    subtitle: string
+    testimonials: Testimonial[]
+  }
+  includeSection: {
+    title: string
+    description: string
+    includeItems: Array<{
+      include: string
+      exclude: string
+      icon?: SanityImageSource
+    }>
+  }
+}
+
 export interface Curriculum {
   _id: string
   _type: 'curriculum'

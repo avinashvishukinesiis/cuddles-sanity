@@ -70,52 +70,144 @@ export const partnerships = defineType({
     },
     {
       name: 'partnerWithSection',
-      title: 'Partner With Section',
+      title: 'Who We Partner With Section',
       type: 'object',
       fields: [
         {
           name: 'title',
           title: 'Section Title',
-          type: 'string'
+          type: 'string',
+          initialValue: 'Who we partner with!'
         },
         {
-          name: 'content',
-          title: 'Section Content',
-          type: 'text'
+          name: 'subtitle',
+          title: 'Section Subtitle',
+          type: 'string',
+          initialValue: 'Whether you are an industry giant or an emerging enterprise, we work closely with you to offer your employees quality preschool and day-care services that truly support their work-life balance.'
+        },
+        {
+          name: 'partnerTypes',
+          title: 'Partner Types',
+          type: 'array',
+          of: [{
+            type: 'object',
+            fields: [
+              {
+                name: 'title',
+                title: 'Partner Type',
+                type: 'string',
+                validation: (Rule) => Rule.required()
+              }
+            ]
+          }],
+          initialValue: [
+            { title: 'IT & Tech Companies' },
+            { title: 'Multinational Corporations' },
+            { title: 'Government Institutions' },
+            { title: 'Healthcare Providers' },
+            { title: 'Startups and Corporate Parks' }
+          ]
         }
       ]
     },
     {
       name: 'cuddlesPartnerSection',
-      title: 'Cuddles Partner Section',
+      title: 'Why Partner With Cuddles Section',
       type: 'object',
       fields: [
         {
           name: 'title',
           title: 'Section Title',
-          type: 'string'
+          type: 'string',
+          initialValue: 'Why Partner With Cuddles?'
         },
         {
-          name: 'content',
-          title: 'Section Content',
-          type: 'text'
+          name: 'subtitle',
+          title: 'Section Subtitle',
+          type: 'string',
+          initialValue: 'Every Day At Cuddles Follows A Rhythm Designed To Comfort, Inspire, And Engage. Here\'s What A Typical Day Looks Like'
+        },
+        {
+          name: 'benefits',
+          title: 'Partnership Benefits',
+          type: 'array',
+          of: [{
+            type: 'object',
+            fields: [
+              {
+                name: 'title',
+                title: 'Benefit Title',
+                type: 'string',
+                validation: (Rule) => Rule.required()
+              },
+              {
+                name: 'description',
+                title: 'Benefit Description',
+                type: 'text',
+                validation: (Rule) => Rule.required()
+              }
+            ]
+          }],
+          initialValue: [
+            {
+              title: 'Preferential Access & Fee Benefits',
+              description: 'Corporate partners receive priority admissions and tailored fee structures, making our premium early education experience more accessible to their teams.'
+            },
+            {
+              title: 'Custom Childcare Solutions',
+              description: 'We offer flexible plans including full-time preschool, day-care support, emergency care, and on-demand parenting workshops to meet your team\'s evolving needs.'
+            },
+            {
+              title: 'Trusted Early Learning Approach',
+              description: 'Our play-based, process-driven curriculum fosters curiosity, creativity, and confidence. Children build lasting skills through experiences that go beyond academics — from emotional intelligence to collaborative thinking.'
+            },
+            {
+              title: 'Reliable Communication & Involvement',
+              description: 'From parent-teacher touchpoints to real-time updates, we keep families engaged every step of the way. You can trust that every child is cared for with intention and heart.'
+            }
+          ]
         }
       ]
     },
     {
       name: 'enrollSection',
-      title: 'Enroll Section',
+      title: 'How To Enroll Section',
       type: 'object',
       fields: [
         {
           name: 'title',
           title: 'Section Title',
-          type: 'string'
+          type: 'string',
+          initialValue: 'How To Enroll'
         },
         {
-          name: 'content',
-          title: 'Section Content',
-          type: 'text'
+          name: 'subtitle',
+          title: 'Section Subtitle',
+          type: 'string',
+          initialValue: 'Getting Started Is Simple And Seamless.'
+        },
+        {
+          name: 'steps',
+          title: 'Enrollment Steps',
+          type: 'array',
+          of: [{
+            type: 'object',
+            fields: [
+              {
+                name: 'step',
+                title: 'Step Description',
+                type: 'string',
+                validation: (Rule) => Rule.required()
+              }
+            ]
+          }],
+          initialValue: [
+            { step: 'Reach Out via the corporate inquiry form below' },
+            { step: 'We Connect to understand your team\'s requirements' },
+            { step: 'We Curate a custom enrollment and benefit structure' },
+            { step: 'You Share Access to your employees' },
+            { step: 'Children Enroll with priority placement and onboarding support' }
+          ]
         }
       ]
     },
@@ -130,6 +222,12 @@ export const partnerships = defineType({
           type: 'string',
           validation: (Rule) => Rule.required(),
           initialValue: 'Let\'s Build a Brighter Future Together!'
+        },
+        {
+          name: 'subtitle',
+          title: 'Section Subtitle',
+          type: 'string',
+          initialValue: 'Contact us to explore partnership opportunities'
         },
         {
           name: 'formImage',

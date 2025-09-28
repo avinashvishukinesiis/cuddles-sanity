@@ -1,23 +1,26 @@
 import React from 'react'
+import { Partnerships } from '@/lib/types'
 
-const ParternerWith = () => {
-    const content =[
-        {
-            point:"IT & Tech Companies"
-        },
-        {
-            point:"Multinational Corporations"
-        },
-        {
-            point:"Government Institutions"
-        },
-        {
-            point:"Healthcare Providers"
-        },
-        {
-            point:"IStartups and Corporate Parks"
-        },
-    ]
+interface ParternerWithProps {
+    partnershipsData?: Partnerships | null
+}
+
+const ParternerWith: React.FC<ParternerWithProps> = ({ partnershipsData }) => {
+    const defaultData = {
+        partnerWithSection: {
+            title: 'Who we partner with!',
+            subtitle: 'Whether you are an industry giant or an emerging enterprise, we work closely with you to offer your employees quality preschool and day-care services that truly support their work-life balance.',
+            partnerTypes: [
+                { title: 'IT & Tech Companies' },
+                { title: 'Multinational Corporations' },
+                { title: 'Government Institutions' },
+                { title: 'Healthcare Providers' },
+                { title: 'Startups and Corporate Parks' }
+            ]
+        }
+    }
+
+    const partnerData = partnershipsData?.partnerWithSection || defaultData.partnerWithSection
     return (
         <section>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#4AA6B1" fillOpacity="1" d="M0,160L48,170.7C96,181,192,203,288,202.7C384,203,480,181,576,165.3C672,149,768,139,864,149.3C960,160,1056,192,1152,213.3C1248,235,1344,245,1392,250.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
@@ -26,19 +29,19 @@ const ParternerWith = () => {
                     <h2
                         className="text-center text-balance text-5xl relative inline font-extrabold"
                     >
-                        Who we partner with!
+                        {partnerData.title}
                     </h2>
                     <p className="text-center text-balance text-2xl relative font-medium">
-                        Whether you are an industry giant or an emerging enterprise, we work closely with you to offer your employees quality preschool and day-care services that truly support their work-life balance.
+                        {partnerData.subtitle}
                     </p>
                 </header>
                 <div className='w-fit flex flex-col gap-4 md:gap-8'>
                         {
-                            content.map((item,ind)=>{
+                            partnerData.partnerTypes?.map((item: { title: string }, ind: number)=>{
                                 return(
                                     <div key={ind} className='flex items-center gap-4 text-white text-2xl'>
                                         <span className='w-11 h-11 flex items-center justify-center rounded-full bg-white text-[#4AA6B1] font-extrabold'>{ind+1}</span>
-                                        <p>{item.point}</p>
+                                        <p>{item.title}</p>
                                     </div>
                                 )
                             })

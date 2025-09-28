@@ -4,6 +4,8 @@ import type React from "react"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { AboutUs } from '@/lib/types'
+import { urlFor } from '@/lib/sanity'
 
 type LabelProps = { id: string; label: string; required?: boolean }
 function FieldLabel({ id, label, required }: LabelProps) {
@@ -19,7 +21,11 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
     return <div className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#9769A5]">{children}</div>
 }
 
-export default function LetsConnect() {
+interface LetsConnectProps {
+    aboutUsData?: AboutUs | null
+}
+
+export default function LetsConnect({ aboutUsData }: LetsConnectProps) {
     const [submitting, setSubmitting] = useState(false)
     const [formData, setFormData] = useState({
         child_name: "",
@@ -29,6 +35,20 @@ export default function LetsConnect() {
         email: "",
         comments: "",
     })
+
+    // Default data fallback
+    const defaultData = {
+        letsConnectSection: {
+            title: "Let's Connect",
+            subtitle: "We'd love to hear from you! Whether you have questions about our programs or want to schedule a visit, our team is here to help.",
+            formTitle: "Your Child's Bright Future Starts Here!",
+            formImage: null,
+            heartDecoration: null,
+            cloudIcon: null
+        }
+    }
+
+    const letsConnectData = aboutUsData?.letsConnectSection || defaultData.letsConnectSection
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target
         setFormData((prev) => ({ ...prev, [name]: value }))
@@ -76,7 +96,7 @@ export default function LetsConnect() {
                         transition={{ duration: 0.5 }}
                         className="text-center text-balance text-4xl font-extrabold"
                     >
-                        {"Let’s Connect"}
+                        {letsConnectData.title}
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 8 }}
@@ -84,10 +104,16 @@ export default function LetsConnect() {
                         transition={{ duration: 0.5, delay: 0.05 }}
                         className="mx-auto mt-3 max-w-2xl text-2xl text-center text-pretty text-white/90 relative"
                     >
-                        {
-                            "We'd love to hear from you! Whether you have questions about our programs or want to schedule a visit, our team is here to help."
-                        }
-                        <img src="./handHeart.svg" className="w-64 absolute left-[-200px] top-[-90px]" />
+                        {letsConnectData.subtitle}
+                        {letsConnectData.heartDecoration ? (
+                            <img
+                                src={urlFor(letsConnectData.heartDecoration).url()}
+                                alt="Heart decoration"
+                                className="w-64 absolute left-[-200px] top-[-90px]"
+                            />
+                        ) : (
+                            <img src="./handHeart.svg" alt="Hand heart decoration" className="w-64 absolute left-[-200px] top-[-90px]" />
+                        )}
                     </motion.p>
                 </header>
 
@@ -103,16 +129,23 @@ export default function LetsConnect() {
                             {/* Left: big headline + image */}
                             <div className="space-y-6">
                                 <h2 className="text-pretty text-3xl font-extrabold text-[#9769A5] md:text-6xl md:max-w-2xs">
-                                    {"Your Child’s Bright Future Starts Here!"}
+                                    {letsConnectData.formTitle}
                                 </h2>
 
                                 <div className="overflow-hidden rounded-md ring-2 ring-purple-200">
-                                    {/* You can replace this placeholder with a real image later */}
-                                    <img
-                                        src="/LetsConnect.png"
-                                        alt="Child in a colorful classroom"
-                                        className="h-56 w-full object-cover md:h-72"
-                                    />
+                                    {letsConnectData.formImage ? (
+                                        <img
+                                            src={urlFor(letsConnectData.formImage).url()}
+                                            alt="Child in a colorful classroom"
+                                            className="h-56 w-full object-cover md:h-72"
+                                        />
+                                    ) : (
+                                        <img
+                                            src="/LetsConnect.png"
+                                            alt="Child in a colorful classroom"
+                                            className="h-56 w-full object-cover md:h-72"
+                                        />
+                                    )}
                                 </div>
                             </div>
 

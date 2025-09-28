@@ -1,11 +1,10 @@
 "use client"
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, MotionProps } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 
-const Path = (props: any) => (
+const Path = (props: MotionProps & { d?: string }) => (
   <motion.path
     fill="transparent"
     strokeWidth="2"

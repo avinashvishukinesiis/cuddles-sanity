@@ -4,6 +4,18 @@ export const aboutUs = defineType({
   name: 'aboutUs',
   title: 'About Us',
   type: 'document',
+  preview: {
+    select: {
+      title: 'heroSection.title'
+    },
+    prepare(selection) {
+      const { title } = selection
+      return {
+        title: title || 'About Us Page',
+        subtitle: 'About Us page content'
+      }
+    }
+  },
   fields: [
     {
       name: 'heroSection',
@@ -28,7 +40,7 @@ export const aboutUs = defineType({
           name: 'backgroundImage',
           title: 'Background Image',
           type: 'image',
-          description: 'Upload the hero background image (current: about-hero-bg CSS class)',
+          description: 'Upload the hero background image (current: /About_hero_image.jpg)',
           options: {
             hotspot: true
           }
@@ -57,7 +69,7 @@ export const aboutUs = defineType({
           name: 'visionIcon',
           title: 'Vision Icon',
           type: 'image',
-          description: 'Upload vision icon (current: ./eyes.svg)',
+          description: 'Upload vision icon (current: /eyes.svg)',
           options: {
             hotspot: true
           }
@@ -73,7 +85,7 @@ export const aboutUs = defineType({
           name: 'missionIcon',
           title: 'Mission Icon',
           type: 'image',
-          description: 'Upload mission icon (current: ./hand-heart.svg)',
+          description: 'Upload mission icon (current: /hand-heart.svg)',
           options: {
             hotspot: true
           }
@@ -109,18 +121,127 @@ export const aboutUs = defineType({
           name: 'description',
           title: 'CEO Description',
           type: 'array',
-          of: [{ type: 'text' }],
-          initialValue: [
-            'At the center of cuddles preschool is our CEO: Chandrika Bharath - an engineer by training, a mother by instinct, and an educator by choice. Since 2002 she\'s been building a space where children are not just taught, but understood. Her approach blends structure with softness. Her background in engineering gives her an eye for detail and systems, but it\'s her lived experience as a parent that shapes the way she sees children - not as boxes to fit into molds, but as individuals who need space, security, and a little spark to thrive.',
-            'Every part of the Cuddles experience - from the curriculum to classroom design - reflects her belief that learning should feel like play, and school should feel like home. She stays hands-on constantly updating the program with the newest research and best practices (tried and tested) but never losing sight of the heart of it all: joy.',
-            'Whether she\'s training teachers, planning a new activity, or crouching down to tie a shoelace, she leads with care. And it shows - in the way children settle in, in the way parents trust, and in the way teachers grow. Because childhood comes only once. And our CEO is making sure it counts.'
-          ]
+          of: [{ type: 'text' }]
         },
         {
           name: 'image',
           title: 'CEO Photo',
           type: 'image',
-          description: 'Upload CEO photo (current: ./CEO.jpg)',
+          description: 'Upload CEO photo (current: /CEO.jpg)',
+          options: {
+            hotspot: true
+          }
+        }
+      ]
+    },
+    {
+      name: 'faqSection',
+      title: 'FAQ Section',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Section Title',
+          type: 'string',
+          initialValue: 'Frequently Asked Questions'
+        },
+        {
+          name: 'faqs',
+          title: 'FAQ Items',
+          type: 'array',
+          of: [{
+            type: 'object',
+            fields: [
+              {
+                name: 'question',
+                title: 'Question',
+                type: 'string',
+                validation: (Rule) => Rule.required()
+              },
+              {
+                name: 'answer',
+                title: 'Answer',
+                type: 'text',
+                validation: (Rule) => Rule.required()
+              },
+              {
+                name: 'order',
+                title: 'Display Order',
+                type: 'number'
+              }
+            ]
+          }],
+          initialValue: [
+            {
+              question: 'What age groups do you accept?',
+              answer: 'We take kids of 3 months and onwards.',
+              order: 1
+            },
+            {
+              question: 'In what ways can learning via play help children perform better in school?',
+              answer: 'Learning through play helps children develop critical thinking skills, creativity, and social abilities. It makes learning enjoyable and memorable, leading to better retention and academic performance.',
+              order: 2
+            },
+            {
+              question: 'What security steps do you take, and how do you let parents know?',
+              answer: 'We maintain strict security protocols including background checks for all staff, secure entry systems, regular safety drills, and real-time communication with parents through our app and daily reports.',
+              order: 3
+            },
+            {
+              question: 'Are parents updated and involved in school happenings?',
+              answer: 'Yes! We provide daily updates through our parent app, regular newsletters, parent-teacher conferences, and special events. We believe in maintaining open communication with families.',
+              order: 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'letsConnectSection',
+      title: 'Lets Connect Section',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          title: 'Section Title',
+          type: 'string',
+          initialValue: 'Let\'s Connect'
+        },
+        {
+          name: 'subtitle',
+          title: 'Section Subtitle',
+          type: 'string',
+          initialValue: 'We\'d love to hear from you! Whether you have questions about our programs or want to schedule a visit, our team is here to help.'
+        },
+        {
+          name: 'formTitle',
+          title: 'Form Title',
+          type: 'string',
+          initialValue: 'Your Child\'s Bright Future Starts Here!'
+        },
+        {
+          name: 'formImage',
+          title: 'Form Image',
+          type: 'image',
+          description: 'Upload form image (current: /LetsConnect.png)',
+          options: {
+            hotspot: true
+          }
+        },
+        {
+          name: 'heartDecoration',
+          title: 'Heart Decoration Image',
+          type: 'image',
+          description: 'Upload heart decoration (current: /hand-heart.svg)',
+          options: {
+            hotspot: true
+          }
+        },
+        {
+          name: 'cloudIcon',
+          title: 'Cloud Icon',
+          type: 'image',
+          description: 'Upload cloud icon (current: /cloud.svg)',
           options: {
             hotspot: true
           }

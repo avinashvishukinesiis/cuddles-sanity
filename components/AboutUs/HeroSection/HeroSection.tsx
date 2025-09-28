@@ -1,5 +1,6 @@
 import React from 'react'
 import { AboutUs } from '@/lib/types'
+import { urlFor } from '@/lib/sanity'
 
 interface HeroSectionProps {
     aboutData?: AboutUs | null
@@ -7,16 +8,28 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ aboutData }) => {
     const defaultData = {
-        heroTitle: "Driven by purpose and care",
-        heroDescription: "Founded in 2008, Cuddles Preschool has evolved into a trusted space for early learning, where happy, confident, and independent children thrive. Over the years, we've nurtured hundreds of little learners and witnessed their incredible journeys—each child's growth is a story that continues to inspire us."
+        heroSection: {
+            title: "Driven by purpose and care",
+            description: "Founded in 2008, Cuddles Preschool has evolved into a trusted space for early learning, where happy, confident, and independent children thrive. Over the years, we've nurtured hundreds of little learners and witnessed their incredible journeys—each child's growth is a story that continues to inspire us.",
+            backgroundImage: null
+        }
     }
 
-    const content = aboutData || defaultData
+    const heroData = aboutData?.heroSection || defaultData.heroSection
+
+    const backgroundImageUrl = heroData.backgroundImage
+        ? urlFor(heroData.backgroundImage).url()
+        : '/About_hero_image.jpg';
 
     return (
         <section className='relative h-max'>
             {/* Hero with background */}
-            <div className="w-full h-[80vh] about-hero-bg bg-cover bg-center bg-no-repeat relative overflow-hidden">
+            <div
+                className="w-full h-[80vh] bg-cover bg-center bg-no-repeat relative overflow-hidden"
+                style={{
+                    backgroundImage: `url('${backgroundImageUrl}')`
+                }}
+            >
                 {/* Responsive Wave */}
                 <svg
                     className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-40"
@@ -35,10 +48,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ aboutData }) => {
             <div className="w-full h-max bg-white flex items-center justify-center pt-8">
                 <div className='w-full px-4 md:px-0 md:w-[60vw] flex flex-col gap-8'>
                     <h2 className='font-extrabold text-3xl md:text-7xl text-[#9769A5] text-center'>
-                        {content.heroTitle}
+                        {heroData.title}
                     </h2>
                     <p className='text-[18px] font-medium text-center text-[#9769A5]'>
-                        {content.heroDescription}
+                        {heroData.description}
                     </p>
                 </div>
             </div>

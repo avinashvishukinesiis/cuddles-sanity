@@ -1,5 +1,6 @@
 import React from 'react'
 import { AboutUs } from '@/lib/types'
+import { urlFor } from '@/lib/sanity'
 
 interface VissionAndMissionProps {
     aboutData?: AboutUs | null
@@ -7,11 +8,16 @@ interface VissionAndMissionProps {
 
 const VissionAndMission: React.FC<VissionAndMissionProps> = ({ aboutData }) => {
     const defaultData = {
-        vision: "We envision a future where early childhood is honoured as the most powerful stage of learning. At Cuddles, we strive to redefine preschool education by creating environments where curiosity is cherished, imagination is nurtured, and the joy of learning lasts a lifetime.",
-        mission: "Our mission is to nurture young minds through playful, purposeful learning that builds strong foundations for life. We aim to create a joyful environment where every child feels safe, supported, and inspired to grow with confidence and creativity."
+        visionAndMissionSection: {
+            sectionTitle: "Our Vision & mission",
+            vision: "We envision a future where early childhood is honoured as the most powerful stage of learning. At Cuddles, we strive to redefine preschool education by creating environments where curiosity is cherished, imagination is nurtured, and the joy of learning lasts a lifetime.",
+            visionIcon: null,
+            mission: "Our mission is to nurture young minds through playful, purposeful learning that builds strong foundations for life. We aim to create a joyful environment where every child feels safe, supported, and inspired to grow with confidence and creativity.",
+            missionIcon: null
+        }
     }
 
-    const content = aboutData || defaultData
+    const visionMissionData = aboutData?.visionAndMissionSection || defaultData.visionAndMissionSection
 
     return (
         <section>
@@ -21,19 +27,27 @@ const VissionAndMission: React.FC<VissionAndMissionProps> = ({ aboutData }) => {
                     <h2
                         className="text-center text-balance text-5xl relative inline font-extrabold"
                     >
-                        Our Vision & mission
+                        {visionMissionData.sectionTitle}
                     </h2>
                 </header>
                 <div className='max-w-[700px] grid md:grid-cols-2 md:grid-rows-1 grid-cols-1 grid-row-2 items-center justify-center text-white text-center gap-16'>
                     <div className='flex flex-col gap-4 justify-center items-center'>
-                        <img src="./eyes.svg" className='w-8' alt="eye vector" />
+                        <img
+                            src={visionMissionData.visionIcon ? urlFor(visionMissionData.visionIcon).url() : "./eyes.svg"}
+                            className='w-8'
+                            alt="vision icon"
+                        />
                         <h2 className='text-2xl font-extrabold'>Vision</h2>
-                        <p>{content.vision}</p>
+                        <p>{visionMissionData.vision}</p>
                     </div>
                     <div className='flex flex-col gap-4 justify-center items-center'>
-                        <img src="./hand-heart.svg" className='w-8' alt="heart vector" />
+                        <img
+                            src={visionMissionData.missionIcon ? urlFor(visionMissionData.missionIcon).url() : "./hand-heart.svg"}
+                            className='w-8'
+                            alt="mission icon"
+                        />
                         <h2 className='text-2xl font-extrabold'>Mission</h2>
-                        <p>{content.mission}</p>
+                        <p>{visionMissionData.mission}</p>
                     </div>
                 </div>
             </div>

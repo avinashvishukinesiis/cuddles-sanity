@@ -4,6 +4,8 @@ import type React from "react"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { Partnerships } from '@/lib/types'
+import { urlFor } from '@/lib/sanity'
 
 type LabelProps = { id: string; label: string; required?: boolean }
 function FieldLabel({ id, label, required }: LabelProps) {
@@ -19,7 +21,25 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
     return <div className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#9769A5]">{children}</div>
 }
 
-export default function LetsBuild() {
+interface LetsBuildProps {
+    partnershipsData?: Partnerships | null
+}
+
+export default function LetsBuild({ partnershipsData }: LetsBuildProps) {
+    const defaultData = {
+        letsBuildSection: {
+            title: 'Let\'s Build a Brighter Future Together!',
+            subtitle: 'Contact us to explore partnership opportunities',
+            formImage: null
+        }
+    }
+
+    const letsBuildData = partnershipsData?.letsBuildSection || defaultData.letsBuildSection
+
+    const formImageUrl = letsBuildData.formImage
+        ? urlFor(letsBuildData.formImage).url()
+        : '/LetsBuild.png'
+
     const [submitting, setSubmitting] = useState(false)
     const [formData, setFormData] = useState({
             Type_of_partnership: "",
@@ -72,7 +92,7 @@ export default function LetsBuild() {
                         transition={{ duration: 0.5 }}
                         className="text-center text-balance text-4xl font-extrabold"
                     >
-                        {"Let’s Build a Brighter Future Together!"}
+                        {letsBuildData.title}
                     </motion.h2>
                 </header>
 
@@ -92,9 +112,8 @@ export default function LetsBuild() {
                                 </h2>
 
                                 <div className="overflow-hidden rounded-md ring-2 ring-purple-200">
-                                    {/* You can replace this placeholder with a real image later */}
                                     <img
-                                        src="/LetsBuild.png"
+                                        src={formImageUrl}
                                         alt="Child in a colorful classroom"
                                         className="w-full object-cover h-72 md:h-[450px]"
                                     />

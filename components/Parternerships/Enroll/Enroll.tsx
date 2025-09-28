@@ -1,13 +1,26 @@
 import React from 'react'
+import { Partnerships } from '@/lib/types'
 
-const Enroll = () => {
-   const steps = [
-    "Reach Out via the corporate inquiry form below",
-    "We Connect to understand your team's requirements",
-    "We Curate a custom enrollment and benefit structure",
-    "You Share Access to your employees",
-    "Children Enroll with priority placement and onboarding support",
-  ]
+interface EnrollProps {
+    partnershipsData?: Partnerships | null
+}
+
+const Enroll: React.FC<EnrollProps> = ({ partnershipsData }) => {
+  const defaultData = {
+    enrollSection: {
+      title: 'How To Enroll',
+      subtitle: 'Getting Started Is Simple And Seamless.',
+      steps: [
+        { step: "Reach Out via the corporate inquiry form below" },
+        { step: "We Connect to understand your team's requirements" },
+        { step: "We Curate a custom enrollment and benefit structure" },
+        { step: "You Share Access to your employees" },
+        { step: "Children Enroll with priority placement and onboarding support" }
+      ]
+    }
+  }
+
+  const enrollData = partnershipsData?.enrollSection || defaultData.enrollSection
 
   return (
     <section>
@@ -17,15 +30,15 @@ const Enroll = () => {
                     <h2
                         className="text-center text-balance text-5xl relative inline font-extrabold"
                     >
-                       How To Enroll
+                       {enrollData.title}
                     </h2>
                     <p className="text-center text-balance text-2xl relative font-medium">
-                        Getting Started Is Simple And Seamless.
+                        {enrollData.subtitle}
                     </p>
                 </header>
         {/* Steps */}
         <div className="max-w-[400px] mx-auto">
-          {steps.map((step, index) => (
+          {enrollData.steps?.map((stepItem: { step: string }, index: number) => (
             <div key={index} className="flex flex-col items-center">
               {/* Step Content */}
               <div className="flex items-center gap-4 sm:gap-6 w-full">
@@ -35,11 +48,11 @@ const Enroll = () => {
                 </div>
 
                 {/* Step Text */}
-                <p className="text-lg text-white">{step}</p>
+                <p className="text-lg text-white">{stepItem.step}</p>
               </div>
 
               {/* Arrow (except for last step) */}
-              {index < steps.length - 1 && (
+              {index < (enrollData.steps?.length || 0) - 1 && (
                 <div className="mt-6 sm:mt-8 mb-2">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path

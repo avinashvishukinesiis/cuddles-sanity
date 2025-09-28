@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { Testimonial as TestimonialType } from "@/lib/types"
 import { urlFor } from "@/lib/sanity"
@@ -114,7 +113,7 @@ export default function Testimonial({ testimonials: sanityTestimonials }: Testim
         }, 4000)
 
         return () => clearInterval(interval)
-    }, [])
+    }, [nextSlide])
 
     return (
         <section className="flex flex-col items-center justify-center w-screen">

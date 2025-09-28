@@ -5,12 +5,12 @@ import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
 import Include from "@/components/HomePage/Include/Include";
 import LetsConnect from "@/components/LetsConnect/letsConnect";
 import Testimonial from "@/components/Testimonial/Testimonial";
-import { getHeroSection, getTestimonials } from "@/lib/sanity-utils";
+import { autoFetchHeroSection, autoFetchTestimonials } from "@/lib/auto-data-fetcher";
 
 export default async function Home() {
   const [heroData, testimonials] = await Promise.all([
-    getHeroSection(),
-    getTestimonials()
+    autoFetchHeroSection(),
+    autoFetchTestimonials()
   ]);
 
   return (

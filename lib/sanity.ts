@@ -1,16 +1,54 @@
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
+// Environment detection
+const isDev = process.env.NODE_ENV === 'development'
+const isProduction = process.env.NODE_ENV === 'production'
+
+// Dataset selection based on environment
+const getDataset = () => {
+  if (process.env.NEXT_PUBLIC_SANITY_DATASET_DEV && isDev) {
+    return process.env.NEXT_PUBLIC_SANITY_DATASET_DEV
+  }
+  if (process.env.NEXT_PUBLIC_SANITY_DATASET_PROD && isProduction) {
+    return process.env.NEXT_PUBLIC_SANITY_DATASET_PROD
+  }
+  return process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+}
+
+// Main client for public data fetching
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-  useCdn: true,
+  dataset: getDataset(),
+  useCdn: !isDev, // Use CDN in production, direct API in development
   apiVersion: '2024-01-01',
+  perspective: 'published', // Only published content
+})
+
+// Admin client for mutations and previews (requires token)
+export const adminClient = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: getDataset(),
+  useCdn: false, // Always use direct API for admin operations
+  apiVersion: '2024-01-01',
+  token: process.env.SANITY_API_TOKEN,
+  perspective: 'previewDrafts', // Include draft content
+})
+
+// Preview client for draft content
+export const previewClient = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: getDataset(),
+  useCdn: false,
+  apiVersion: '2024-01-01',
+  token: process.env.SANITY_API_TOKEN,
+  perspective: 'previewDrafts',
 })
 
 const builder = imageUrlBuilder(client)
 
-export function urlFor(source: any) {
+export function urlFor(source: SanityImageSource) {
   return builder.image(source)
 }
 

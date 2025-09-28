@@ -59,7 +59,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ safetyData }) => {
                         {heroData.description}
                     </p>
                     <div className='grid md:grid-cols-3 grid-cols-1 md:grid-rows-1 grid-rows-3 gap-6'>
-                        {heroData.safetyFeatures?.map((item: any, index: number) => {
+                        {heroData.safetyFeatures?.map((item: { title: string; description: string; image?: unknown; imageAlt: string; titleColor?: string }, index: number) => {
                             const imageUrl = item.image ? urlFor(item.image).url() : `/daily-sanitization.jpg`; // fallback
                             return (
                                 <ContentCard

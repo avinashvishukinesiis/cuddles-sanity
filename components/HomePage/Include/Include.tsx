@@ -1,9 +1,28 @@
-import React from 'react'
-import { ImCross } from "react-icons/im";
+'use client'
 
+import React, { useEffect, useState } from 'react'
+import { ImCross } from "react-icons/im";
+import { client, urlFor } from "@/lib/sanity";
+
+
+interface IncludeItem {
+    include: string
+    exclude: string
+    icon?: unknown
+}
+
+interface IncludeSection {
+    title: string
+    description: string
+    includeItems: IncludeItem[]
+}
 
 const Include = () => {
-    const content = [
+    const [includeData, setIncludeData] = useState<IncludeSection | null>(null)
+    const [, setLoading] = useState(true)
+
+    // Fallback content
+    const defaultContent = [
         {
             icon: './report.png',
             include: 'Safe, child-friendly campus',
@@ -30,6 +49,37 @@ const Include = () => {
             exclude: 'Generic or outdated lesson plans',
         },
     ]
+
+    useEffect(() => {
+        const fetchIncludeData = async () => {
+            try {
+                const data = await client.fetch(`*[_type == "homePage"][0].includeSection{
+                    title,
+                    description,
+                    includeItems[]{
+                        include,
+                        exclude,
+                        icon
+                    }
+                }`)
+                setIncludeData(data)
+            } catch (error) {
+                console.error('Error fetching include data:', error)
+            } finally {
+                setLoading(false)
+            }
+        }
+        fetchIncludeData()
+    }, [])
+
+    const content = includeData?.includeItems && includeData.includeItems.length > 0
+        ? includeData.includeItems.map((item, index) => ({
+            id: `include-item-${index}`,
+            icon: item.icon ? urlFor(item.icon).url() : './report.png',
+            include: item.include,
+            exclude: item.exclude
+        }))
+        : defaultContent.map((item, index) => ({ ...item, id: `default-item-${index}` }))
     return (
         <section>
             <svg xmlns="http://www.w3.org/2000/svg" className="relative -mb-1" viewBox="0 0 1440 320"><path fill="#4AA6B1" fillOpacity="1" d="M0,160L120,176C240,192,480,224,720,208C960,192,1200,128,1320,96L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
@@ -38,24 +88,24 @@ const Include = () => {
                     <h2
                         className="text-center text-balance text-5xl relative inline font-extrabold"
                     >
-                        What’s Included and what’s Not
+                        {includeData?.title || "What's Included and what's Not"}
                     </h2>
                     <h3 className="text-center text-balance text-2xl relative font-medium">
-                        We thoughtfully design every part of a child’s early years.
+                        {includeData?.description || "We thoughtfully design every part of a child's early years."}
                     </h3>
                 </header>
                 <div className='flex flex-col gap-16 justify-center items-center max-w-[600px]'>
                     {
-                        content.map((item, ind) => {
+                        content.map((item) => {
                             return (
-                                <div key={ind} className='grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 grid-rows-2 gap-8 w-full'>
+                                <div key={item.id} className='grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 grid-rows-2 gap-8 w-full'>
                                     <div className='flex gap-4 items-center'>
                                         <img src={item.icon} alt={item.include} className='h-6' />
                                         <p className='text-white text-[14px] text-center'>{item.include}</p>
                                     </div>
                                     <div className='flex gap-4 md:items-center md:justify-center relative pl-10 md:pl-6'>
                                         <ImCross className='h-6 text-white absolute left-0'/>
-                                        <p className='text-white text-[14px] text-center'>{item.include}</p>
+                                        <p className='text-white text-[14px] text-center'>{item.exclude}</p>
                                     </div>
                                 </div>
                             )

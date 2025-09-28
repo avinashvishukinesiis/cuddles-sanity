@@ -12,10 +12,6 @@ import { NextStudio } from 'next-sanity/studio'
 import { useEffect } from 'react'
 import config from '../../../sanity.config'
 
-export const dynamic = 'force-static'
-
-export { metadata, viewport } from 'next-sanity/studio'
-
 export default function StudioPage() {
   useEffect(() => {
     console.log('[Studio] Loading Sanity Studio with config:', {

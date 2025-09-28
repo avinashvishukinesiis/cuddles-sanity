@@ -20,7 +20,7 @@ export function EarlyEducationSection() {
     const fetchData = async () => {
       try {
         const homePageData = await autoFetchHomePage();
-        setSectionData(homePageData?.earlyEducationSection);
+        setSectionData(homePageData?.earlyEducationSection || null);
       } catch (error) {
         console.error('Error fetching early education data:', error);
       }

@@ -64,7 +64,7 @@ const LearningMethodology: React.FC<LearningMethodologyProps> = ({ curriculumDat
                             style={{ borderLeftColor: method.color }}
                         >
                             <div className="flex items-start gap-4 mb-6">
-                                {method.icon && (
+                                {method.icon && typeof method.icon === 'object' && (
                                     <div
                                         className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
                                         style={{ backgroundColor: `${method.color}20` }}

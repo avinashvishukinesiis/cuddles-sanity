@@ -132,7 +132,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ curriculumData }) => {
 
                                 {/* Program Icon */}
                                 <div className="absolute top-4 right-4 opacity-80">
-                                    {program.icon && (
+                                    {program.icon && typeof program.icon === 'object' && (
                                         <img
                                             src={urlFor(program.icon).url()}
                                             alt={`${program.title} icon`}

@@ -68,7 +68,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ safetyData }) => {
                                     description={item.description}
                                     image={imageUrl}
                                     imageAlt={item.imageAlt}
-                                    titleColor={item.titleColor || "purple"}
+                                    titleColor={(item.titleColor as "purple" | "blue" | "green" | "pink" | "teal" | "orange") || "purple"}
                                 />
                             )
                         })}

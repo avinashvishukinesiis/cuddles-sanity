@@ -145,7 +145,7 @@ const SubjectAreas: React.FC<SubjectAreasProps> = ({ curriculumData }) => {
                         Integrated Learning Approach
                     </h3>
                     <p className="max-w-3xl mx-auto leading-relaxed">
-                        Our subject areas don't exist in isolation. We integrate learning across all subjects,
+                        Our subject areas don&apos;t exist in isolation. We integrate learning across all subjects,
                         creating meaningful connections that help children see how different areas of knowledge
                         work together in the real world.
                     </p>

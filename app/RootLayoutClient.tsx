@@ -39,12 +39,12 @@ export default function RootLayoutClient({ children }: RootLayoutClientProps) {
 
     return (
         <>
-            <NavBar />
+            {shouldShowHeaderFooter && <NavBar />}
             <main className={`h-max min-h-[200px] md:min-h-[500px] ${shouldShowHeaderFooter ? "mt-[65px] md:mt-[81px]" : ""} box-border`}>
                 <MotionWrapper>
                     {children}
-                    {shouldShowFAQ && <FAQSection />}
-                    <Footer />
+                   {shouldShowHeaderFooter && shouldShowFAQ && <FAQSection />}
+                    {shouldShowHeaderFooter && <Footer />}
                 </MotionWrapper>
             </main>
         </>

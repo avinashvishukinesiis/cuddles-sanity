@@ -70,7 +70,7 @@ const LearningMethodology: React.FC<LearningMethodologyProps> = ({ curriculumDat
                                         style={{ backgroundColor: `${method.color}20` }}
                                     >
                                         <img
-                                            src={urlFor(method.icon).url()}
+                                            src={urlFor(method.icon as any).url()}
                                             alt={`${method.title} icon`}
                                             className="w-8 h-8"
                                         />

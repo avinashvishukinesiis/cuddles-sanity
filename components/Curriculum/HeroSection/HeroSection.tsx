@@ -134,7 +134,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ curriculumData }) => {
                                 <div className="absolute top-4 right-4 opacity-80">
                                     {program.icon && typeof program.icon === 'object' && (
                                         <img
-                                            src={urlFor(program.icon).url()}
+                                            src={urlFor(program.icon as any).url()}
                                             alt={`${program.title} icon`}
                                             className="w-12 h-12"
                                         />

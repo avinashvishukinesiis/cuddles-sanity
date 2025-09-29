@@ -1,9 +1,8 @@
 
+import type { NextConfig } from 'next'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  webpack: (config:any) => {
+const nextConfig: NextConfig = {
+  webpack: (config) => {
     return config // 👈 forces Webpack build, disables Turbopack
   },
 }

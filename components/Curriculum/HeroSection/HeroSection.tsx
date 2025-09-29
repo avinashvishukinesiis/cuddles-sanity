@@ -1,6 +1,7 @@
 import React from 'react'
 import { Curriculum } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 interface HeroSectionProps {
     curriculumData?: Curriculum | null
@@ -134,7 +135,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ curriculumData }) => {
                                 <div className="absolute top-4 right-4 opacity-80">
                                     {program.icon && typeof program.icon === 'object' && (
                                         <img
-                                            src={urlFor(program.icon as any).url()}
+                                            src={urlFor(program.icon as SanityImageSource).url()}
                                             alt={`${program.title} icon`}
                                             className="w-12 h-12"
                                         />

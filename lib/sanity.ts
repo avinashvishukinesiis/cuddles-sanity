@@ -17,9 +17,15 @@ const getDataset = () => {
   return process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 }
 
+// Debug logging and fallback for projectId
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+if (!projectId) {
+  console.warn('[Sanity Client] Missing NEXT_PUBLIC_SANITY_PROJECT_ID, using fallback')
+}
+
 // Main client for public data fetching
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  projectId: projectId || 'w8a19ipn',
   dataset: getDataset(),
   useCdn: !isDev, // Use CDN in production, direct API in development
   apiVersion: '2024-01-01',
@@ -28,7 +34,7 @@ export const client = createClient({
 
 // Admin client for mutations and previews (requires token)
 export const adminClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  projectId: projectId || 'w8a19ipn',
   dataset: getDataset(),
   useCdn: false, // Always use direct API for admin operations
   apiVersion: '2024-01-01',
@@ -38,7 +44,7 @@ export const adminClient = createClient({
 
 // Preview client for draft content
 export const previewClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  projectId: projectId || 'w8a19ipn',
   dataset: getDataset(),
   useCdn: false,
   apiVersion: '2024-01-01',

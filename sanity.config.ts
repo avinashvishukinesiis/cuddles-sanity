@@ -2,6 +2,7 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemas'
+import { validateSanityConfig } from './lib/config-validator'
 
 // Environment detection
 const isDev = process.env.NODE_ENV === 'development'
@@ -18,10 +19,14 @@ const getDataset = () => {
   return process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 }
 
+// Validate configuration and get fallbacks
+const validation = validateSanityConfig()
+const projectId = validation.config.projectId || validation.fallbacks.projectId
+
 export default defineConfig({
   name: isDev ? 'development' : 'production',
   title: `Cuddles Preschool${isDev ? ' (Development)' : ''}`,
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  projectId: projectId, // Will always have a value due to fallback logic above
   dataset: getDataset(),
 
   plugins: [
@@ -62,7 +67,7 @@ export default defineConfig({
 
   // API configuration
   api: {
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+    projectId: projectId,
     dataset: getDataset(),
     useCdn: !isDev,
     apiVersion: '2024-01-01',

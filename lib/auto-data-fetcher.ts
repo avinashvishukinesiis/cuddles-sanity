@@ -4,7 +4,8 @@
  */
 
 import { client } from './sanity'
-import { HeroSection, HomePage } from './types'
+import { HeroSection, HomePage, Testimonial } from './types'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 // Cache configuration
 const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
@@ -26,7 +27,7 @@ async function cachedFetch<T>(
   // Check cache first
   const cached = cache.get(key)
   if (cached && Date.now() - cached.timestamp < maxAge) {
-    return cached.data
+    return cached.data as T
   }
 
   // Fetch with retry logic
@@ -59,7 +60,7 @@ async function cachedFetch<T>(
 
   if (cached) {
     console.log(`[AutoFetch] ${key} - Using stale cache data`)
-    return cached.data
+    return cached.data as T
   }
 
   if (fallback !== undefined) {
@@ -141,13 +142,31 @@ export async function autoFetchHomePage(): Promise<HomePage | null> {
     }
   }`
 
-  const fallback = {
-    title: 'Home Page Content',
+  const fallback: HomePage = {
+    _id: 'fallback-homepage',
+    _type: 'homePage',
     heroSection: {
+      _id: 'fallback-hero',
+      _type: 'heroSection',
       title: 'Where imagination takes flight.',
       description: 'At Cuddles Preschool, we believe that every child\'s journey begins with a sense of wonder, joy, and discovery.',
       primaryButton: { text: 'Schedule A Visit', link: '/contact' },
       secondaryButton: { text: 'Explore Programs', link: '/curriculum' }
+    },
+    earlyEducationSection: {
+      title: 'Early Education',
+      description: 'Nurturing young minds through play-based learning.',
+      features: [{ title: 'Creative Play' }, { title: 'Social Skills' }, { title: 'Basic Learning' }]
+    },
+    testimonialsSection: {
+      title: 'What Parents Say',
+      subtitle: 'Hear from our community',
+      testimonials: []
+    },
+    includeSection: {
+      title: 'What\'s Included',
+      description: 'Everything your child needs to thrive.',
+      includeItems: []
     }
   }
 
@@ -167,6 +186,8 @@ export async function autoFetchHeroSection(): Promise<HeroSection | null> {
   }`
 
   const fallback: HeroSection = {
+    _id: 'fallback-hero',
+    _type: 'heroSection',
     title: 'Where imagination takes flight.',
     description: 'At Cuddles Preschool, we believe that every child\'s journey begins with a sense of wonder, joy, and discovery.',
     primaryButton: { text: 'Schedule A Visit', link: '/contact' },
@@ -197,7 +218,11 @@ export async function autoFetchTestimonials(): Promise<Testimonial[]> {
   return result.map((testimonial: { name: string; role: string; content: string; image?: unknown; rating?: number; featured?: boolean; displayOrder?: number }, index: number) => ({
     _id: `testimonial-${index}`,
     _type: 'testimonial' as const,
-    ...testimonial
+    name: testimonial.name,
+    role: testimonial.role,
+    content: testimonial.content,
+    image: testimonial.image as SanityImageSource | undefined,
+    rating: testimonial.rating || 5
   }))
 }
 

@@ -6,6 +6,23 @@
 import { client } from './sanity'
 import { autoFetchAllPages, cacheUtils } from './auto-data-fetcher'
 
+// Sanity listen event interface (flexible to handle different event types)
+interface SanityListenEvent {
+  transition?: 'appear' | 'update' | 'disappear'
+  result?: {
+    _type: string
+    _id: string
+    [key: string]: unknown
+  }
+  documentId?: string
+  [key: string]: unknown // Allow additional properties for different event types
+}
+
+// Subscription interface
+interface SanitySubscription {
+  unsubscribe(): void
+}
+
 // Sync configuration
 const SYNC_INTERVAL = 30 * 1000 // 30 seconds
 const MAX_SYNC_RETRIES = 3
@@ -43,7 +60,7 @@ const changeListeners: Map<string, Array<(change: ContentChange) => void>> = new
  * Real-time content synchronization using Sanity's real-time API
  */
 export class AutoContentSync {
-  private subscription: unknown = null
+  private subscription: SanitySubscription | null = null
   private syncInterval: NodeJS.Timeout | null = null
   private isInitialized = false
 
@@ -101,17 +118,23 @@ export class AutoContentSync {
   /**
    * Handle real-time updates from Sanity
    */
-  private async handleRealtimeUpdate(update: { documentId?: string; mutations?: Array<{ create?: unknown; update?: unknown; delete?: unknown }> }) {
+  private async handleRealtimeUpdate(update: SanityListenEvent) {
     const { transition, result } = update
 
-    console.log(`[ContentSync] Real-time update: ${transition} for ${result?._type}`)
+    // Skip processing if this is not a data event (e.g., error events)
+    if (!result || !transition) {
+      console.log('[ContentSync] Skipping non-data event')
+      return
+    }
+
+    console.log(`[ContentSync] Real-time update: ${transition} for ${result._type}`)
 
     const change: ContentChange = {
-      _type: result?._type || 'unknown',
-      _id: result?._id || 'unknown',
+      _type: result._type || 'unknown',
+      _id: result._id || 'unknown',
       action: this.getActionFromTransition(transition),
       timestamp: Date.now(),
-      documentId: result?._id
+      documentId: result._id
     }
 
     // Invalidate relevant cache entries
@@ -204,7 +227,7 @@ export class AutoContentSync {
   /**
    * Handle sync errors with retry logic
    */
-  private handleSyncError() {
+  private handleSyncError(error?: unknown) {
     syncStatus.failedAttempts++
     syncStatus.syncInProgress = false
     syncStatus.isOnline = false
@@ -259,7 +282,7 @@ export class AutoContentSync {
   /**
    * Get action type from Sanity transition
    */
-  private getActionFromTransition(transition: string): ContentChange['action'] {
+  private getActionFromTransition(transition?: string): ContentChange['action'] {
     switch (transition) {
       case 'appear': return 'create'
       case 'update': return 'update'
@@ -370,12 +393,12 @@ export async function handleWebhook(payload: Record<string, unknown>): Promise<v
 
   try {
     const change: ContentChange = {
-      _type: payload._type || 'unknown',
-      _id: payload._id || 'unknown',
+      _type: (payload._type as string) || 'unknown',
+      _id: (payload._id as string) || 'unknown',
       action: payload.transition === 'create' ? 'create' :
               payload.transition === 'delete' ? 'delete' : 'update',
       timestamp: Date.now(),
-      documentId: payload._id
+      documentId: (payload._id as string) || undefined
     }
 
     // Invalidate cache

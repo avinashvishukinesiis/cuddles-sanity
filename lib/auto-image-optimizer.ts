@@ -9,10 +9,9 @@ import { urlFor } from './sanity'
 const IMAGE_QUALITY = 85
 const DEFAULT_BLUR_DATA = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk'
 
-// Image format configuration
+// Image format configuration (Sanity supported formats)
 export const IMAGE_FORMATS = {
   webp: 'webp',
-  avif: 'avif',
   jpg: 'jpg',
   png: 'png'
 } as const
@@ -228,7 +227,7 @@ export function optimizeContentImages(content: Record<string, unknown>[]): Recor
     if (block._type === 'image' && block.asset) {
       return {
         ...block,
-        optimized: getOptimizedImageProps(block.asset, block.alt || '', {
+        optimized: getOptimizedImageProps(block.asset, (block.alt as string) || '', {
           width: IMAGE_SIZES.large,
           quality: IMAGE_QUALITY
         })
@@ -246,7 +245,6 @@ export function generateWebPFallback(imageAsset: unknown, width: number) {
 
   return {
     webp: optimizeImage(imageAsset, { width, format: 'webp' }),
-    avif: optimizeImage(imageAsset, { width, format: 'avif' }),
     fallback: optimizeImage(imageAsset, { width, format: 'jpg' })
   }
 }
@@ -294,13 +292,8 @@ export const imageConfigs = {
 export function getOptimalFormat(): keyof typeof IMAGE_FORMATS {
   if (typeof window === 'undefined') return 'jpg'
 
-  // Check for AVIF support
-  const canvas = document.createElement('canvas')
-  if (canvas.toDataURL('image/avif').indexOf('data:image/avif') === 0) {
-    return 'avif'
-  }
-
   // Check for WebP support
+  const canvas = document.createElement('canvas')
   if (canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0) {
     return 'webp'
   }

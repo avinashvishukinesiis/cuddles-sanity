@@ -12,9 +12,9 @@ const Emergency: React.FC<EmergencyProps> = ({ safetyData }) => {
         emergencySection: {
             title: 'Continued Care for Growing Children',
             emergencyFeatures: [
-                { title: 'Trained staff', description: 'All staff are trained in first aid and certified in CPR.', icon: null },
-                { title: 'Healthcare Partnership', description: 'We are partnered with Apollo Clinic for quick medical assistance.', icon: null },
-                { title: 'Emergency ready', description: 'Emergency plans are in place and regularly practiced.', icon: null }
+                { title: 'Trained staff', description: 'All staff are trained in first aid and certified in CPR.', icon: './trained.svg' },
+                { title: 'Healthcare Partnership', description: 'We are partnered with Apollo Clinic for quick medical assistance.', icon: './healthcare.svg' },
+                { title: 'Emergency ready', description: 'Emergency plans are in place and regularly practiced.', icon: './emergency.svg' }
             ]
         }
     }

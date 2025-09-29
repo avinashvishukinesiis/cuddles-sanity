@@ -15,12 +15,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ safetyData }) => {
             description: "At Cuddles Preschool, safety is not just a policy. It is a part of how we care, teach, and grow. Under the leadership of our founder Chandrika Bharath, every measure is thoughtfully planned to support playful learning without compromising on protection. We create an environment where children can explore freely while being safe, healthy, and supported at every step.",
             backgroundImage: null,
             safetyFeatures: [
-                { title: "Daily Sanitization", description: "Classrooms and play areas are cleaned and sanitised daily", image: null, imageAlt: "Hand using sanitizer bottle", titleColor: "purple" },
-                { title: "Temperature Checks", description: "Temperature checks are done for all children and staff", image: null, imageAlt: "Hand holding thermometer for temperature check", titleColor: "purple" },
-                { title: "CCTV Monitoring", description: "24/7 surveillance to ensure a secure environment.", image: null, imageAlt: "CCTV camera setup", titleColor: "purple" },
-                { title: "Child Proofing", description: "Every toy, tool, and piece of furniture is chosen with safety in mind", image: null, imageAlt: "Living room setup with safe furniture", titleColor: "purple" },
-                { title: "Organised Spaces", description: "Teachers maintain clean, organised learning spaces throughout the day", image: null, imageAlt: "Living room with neatly arranged furniture", titleColor: "purple" },
-                { title: "Child Pick-Up Verification", description: "Strict protocols to ensure your child's safety", image: null, imageAlt: "Hand showing thumbs up", titleColor: "purple" }
+                { title: "Daily Sanitization", description: "Classrooms and play areas are cleaned and sanitised daily", image: '/daily-sanitization.jpg', imageAlt: "Hand using sanitizer bottle", titleColor: "purple" },
+                { title: "Temperature Checks", description: "Temperature checks are done for all children and staff", image: '/temperature-check.jpg', imageAlt: "Hand holding thermometer for temperature check", titleColor: "purple" },
+                { title: "CCTV Monitoring", description: "24/7 surveillance to ensure a secure environment.", image: '/cctv-monitoring.jpg', imageAlt: "CCTV camera setup", titleColor: "purple" },
+                { title: "Child Proofing", description: "Every toy, tool, and piece of furniture is chosen with safety in mind", image: '/child-proofing.jpg', imageAlt: "Living room setup with safe furniture", titleColor: "purple" },
+                { title: "Organised Spaces", description: "Teachers maintain clean, organised learning spaces throughout the day", image: '/organized-spaces.jpg', imageAlt: "Living room with neatly arranged furniture", titleColor: "purple" },
+                { title: "Child Pick-Up Verification", description: "Strict protocols to ensure your child's safety", image: '/pickup-verification.jpg', imageAlt: "Hand showing thumbs up", titleColor: "purple" }
             ]
         }
     }

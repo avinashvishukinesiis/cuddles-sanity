@@ -13,9 +13,9 @@ const HealthyHabits: React.FC<HealthyHabitsProps> = ({ safetyData }) => {
         healthyHabitsSection: {
             title: "Healthy Habits Start Early",
             healthyFeatures: [
-                { title: "Healthy Eating", description: "Children bring vegetarian food from home; junk food is not allowed.", image: null, imageAlt: "Healthy eating habits" },
-                { title: "Allergy Considerations", description: "We work closely with parents to accommodate special dietary needs.", image: null, imageAlt: "Allergy Considerations" },
-                { title: "Supervision", description: "Mealtimes are calm, clean, and closely supervised", image: null, imageAlt: "Supervision" }
+                { title: "Healthy Eating", description: "Children bring vegetarian food from home; junk food is not allowed.", image: '/healthy-eating.jpg', imageAlt: "Healthy eating habits" },
+                { title: "Allergy Considerations", description: "We work closely with parents to accommodate special dietary needs.", image: '/allergy-care.jpg', imageAlt: "Allergy Considerations" },
+                { title: "Supervision", description: "Mealtimes are calm, clean, and closely supervised", image: '/supervision.jpg', imageAlt: "Supervision" }
             ]
         }
     }

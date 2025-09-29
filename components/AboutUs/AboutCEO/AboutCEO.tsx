@@ -17,7 +17,7 @@ const AboutCEO: React.FC<AboutCEOProps> = ({ aboutData }) => {
                 "Every part of the Cuddles experience - from the curriculum to classroom design - reflects her belief that learning should feel like play, and school should feel like home. She stays hands-on constantly updating the program with the newest research and best practices (tried and tested) but never losing sight of the heart of it all: joy.",
                 "Whether she's training teachers, planning a new activity, or crouching down to tie a shoelace, she leads with care. And it shows - in the way children settle in, in the way parents trust, and in the way teachers grow. Because childhood comes only once. And our CEO is making sure it counts."
             ],
-            image: null
+            image: '/ceo-placeholder.jpg'
         }
     }
 

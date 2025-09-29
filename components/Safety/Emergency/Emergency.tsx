@@ -1,6 +1,7 @@
 import React from 'react'
 import { Safety } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 interface EmergencyProps {
     safetyData?: Safety | null
@@ -31,7 +32,7 @@ const Emergency: React.FC<EmergencyProps> = ({ safetyData }) => {
                     </h2>
                 </header>
                 <div className='max-w-[1000px] grid md:grid-cols-3 md:grid-rows-1 grid-cols-1 grid-row-3 items-center justify-center text-white text-center gap-16'>
-                    {emergencyData.emergencyFeatures?.map((feature: { title: string; description: string; icon?: unknown }, index: number) => {
+                    {emergencyData.emergencyFeatures?.map((feature: { title: string; description: string; icon?: SanityImageSource }, index: number) => {
                         const iconUrl = feature.icon ? urlFor(feature.icon).url() : `./trained.svg`; // fallback
                         return (
                             <div key={index} className='flex flex-col gap-4 justify-center items-center'>

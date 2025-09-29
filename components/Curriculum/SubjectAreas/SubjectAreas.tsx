@@ -1,6 +1,7 @@
 import React from 'react'
 import { Curriculum } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 interface SubjectAreasProps {
     curriculumData?: Curriculum | null
@@ -69,7 +70,7 @@ const SubjectAreas: React.FC<SubjectAreasProps> = ({ curriculumData }) => {
 
                 {/* Subjects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {subjectsData.subjects?.map((subject: { title: string; description: string; activities: string[]; icon?: unknown; color: string }, index: number) => (
+                    {subjectsData.subjects?.map((subject: { title: string; description: string; activities: string[]; icon?: SanityImageSource; color: string }, index: number) => (
                         <div
                             key={index}
                             className="bg-white rounded-3xl p-6 shadow-lg border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"

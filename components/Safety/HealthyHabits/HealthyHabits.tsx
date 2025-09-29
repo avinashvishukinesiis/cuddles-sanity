@@ -2,6 +2,7 @@ import { ContentCard } from '@/components/ContentCard';
 import { Safety } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
 import React from 'react'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 interface HealthyHabitsProps {
     safetyData?: Safety | null
@@ -27,7 +28,7 @@ const HealthyHabits: React.FC<HealthyHabitsProps> = ({ safetyData }) => {
                     {healthyData.title}
                 </h2>
                 <div className='grid md:grid-cols-3 grid-cols-1 md:grid-rows-1 grid-rows-3 gap-6'>
-                    {healthyData.healthyFeatures?.map((item: { title: string; description: string; image?: unknown; imageAlt: string }, index: number) => {
+                    {healthyData.healthyFeatures?.map((item: { title: string; description: string; image?: SanityImageSource; imageAlt: string }, index: number) => {
                         const imageUrl = item.image ? urlFor(item.image).url() : `/healthy-eating.jpg`; // fallback
                         return (
                             <ContentCard

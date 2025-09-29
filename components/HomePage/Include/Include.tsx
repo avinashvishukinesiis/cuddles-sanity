@@ -3,12 +3,13 @@
 import React, { useEffect, useState } from 'react'
 import { ImCross } from "react-icons/im";
 import { client, urlFor } from "@/lib/sanity";
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 
 interface IncludeItem {
     include: string
     exclude: string
-    icon?: unknown
+    icon?: SanityImageSource
 }
 
 interface IncludeSection {

@@ -84,7 +84,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ curriculumData }) => {
                     </div>
                     {/* Program Cards Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {programs.map((program: { title: string; ageRange: string; color: string; icon?: unknown; colSpan?: number }, index: number) => (
+                        {programs.map((program: { title: string; ageRange: string; color: string; icon?: SanityImageSource; colSpan?: number }, index: number) => (
                             <div
                                 key={index}
                                 className={`${program.colSpan === 2 ? 'lg:col-span-2' : ''} bg-white border-2 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}

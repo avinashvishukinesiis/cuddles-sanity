@@ -58,7 +58,7 @@ const LearningMethodology: React.FC<LearningMethodologyProps> = ({ curriculumDat
 
                 {/* Methodologies Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {methodologyData.methodologies?.map((method: { title: string; description: string; keyFeatures: string[]; icon?: unknown; color: string }, index: number) => (
+                    {methodologyData.methodologies?.map((method: { title: string; description: string; keyFeatures: string[]; icon?: SanityImageSource; color: string }, index: number) => (
                         <div
                             key={index}
                             className="bg-white rounded-3xl p-8 shadow-lg border-l-4 hover:shadow-xl transition-shadow duration-300"

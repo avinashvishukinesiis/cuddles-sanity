@@ -1,53 +1,36 @@
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import { projectId, dataset, apiVersion } from '../sanity/env'
 
 // Environment detection
 const isDev = process.env.NODE_ENV === 'development'
-const isProduction = process.env.NODE_ENV === 'production'
-
-// Dataset selection based on environment
-const getDataset = () => {
-  if (process.env.NEXT_PUBLIC_SANITY_DATASET_DEV && isDev) {
-    return process.env.NEXT_PUBLIC_SANITY_DATASET_DEV
-  }
-  if (process.env.NEXT_PUBLIC_SANITY_DATASET_PROD && isProduction) {
-    return process.env.NEXT_PUBLIC_SANITY_DATASET_PROD
-  }
-  return process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
-}
-
-// Debug logging and fallback for projectId
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-if (!projectId) {
-  console.warn('[Sanity Client] Missing NEXT_PUBLIC_SANITY_PROJECT_ID, using fallback')
-}
 
 // Main client for public data fetching
 export const client = createClient({
-  projectId: projectId || 'w8a19ipn',
-  dataset: getDataset(),
+  projectId,
+  dataset,
   useCdn: !isDev, // Use CDN in production, direct API in development
-  apiVersion: '2024-01-01',
+  apiVersion,
   perspective: 'published', // Only published content
 })
 
 // Admin client for mutations and previews (requires token)
 export const adminClient = createClient({
-  projectId: projectId || 'w8a19ipn',
-  dataset: getDataset(),
+  projectId,
+  dataset,
   useCdn: false, // Always use direct API for admin operations
-  apiVersion: '2024-01-01',
+  apiVersion,
   token: process.env.SANITY_API_TOKEN,
   perspective: 'previewDrafts', // Include draft content
 })
 
 // Preview client for draft content
 export const previewClient = createClient({
-  projectId: projectId || 'w8a19ipn',
-  dataset: getDataset(),
+  projectId,
+  dataset,
   useCdn: false,
-  apiVersion: '2024-01-01',
+  apiVersion,
   token: process.env.SANITY_API_TOKEN,
   perspective: 'previewDrafts',
 })

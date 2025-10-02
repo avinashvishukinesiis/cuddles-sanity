@@ -8,16 +8,19 @@ import { partnerships } from './partnerships'
 import { safety } from './safety'
 import { assistance } from './assistance'
 import { contact } from './contact'
+import { type SchemaTypeDefinition } from 'sanity'
 
-export const schemaTypes = [
-  aboutUs,
-  program,
-  testimonial,
-  footer,
-  homePage,
-  curriculum,
-  partnerships,
-  safety,
-  assistance,
-  contact
-]
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [
+    aboutUs,
+    program,
+    testimonial,
+    footer,
+    homePage,
+    curriculum,
+    partnerships,
+    safety,
+    assistance,
+    contact
+  ],
+}

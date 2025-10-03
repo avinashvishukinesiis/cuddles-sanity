@@ -373,6 +373,7 @@ export const queries = {
 
   // Site settings / Footer
   siteSettings: `*[_type == "footer"][0]{
+    navbarLogo,
     logo,
     description,
     socialMedia,

@@ -81,6 +81,7 @@ export interface Testimonial {
 export interface SiteSettings {
   _id: string
   _type: 'footer'
+  navbarLogo?: SanityImageSource
   logo?: SanityImageSource
   description: string
   socialMedia: {

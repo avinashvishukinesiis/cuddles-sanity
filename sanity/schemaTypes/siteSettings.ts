@@ -2,9 +2,18 @@ import { defineType } from 'sanity'
 
 export const footer = defineType({
   name: 'footer',
-  title: 'Footer',
+  title: 'Footer & Site Settings',
   type: 'document',
   fields: [
+    {
+      name: 'navbarLogo',
+      title: 'Navbar Logo',
+      type: 'image',
+      description: 'Upload navbar logo (current: /cuddles_logo.svg)',
+      options: {
+        hotspot: true
+      }
+    },
     {
       name: 'logo',
       title: 'Footer Logo',

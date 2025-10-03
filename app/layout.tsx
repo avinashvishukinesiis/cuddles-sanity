@@ -4,12 +4,13 @@ import "./globals.css";
 
 import localFont from 'next/font/local'
 import RootLayoutClient from "./RootLayoutClient";
+import { getSiteSettings } from "@/lib/sanity-utils";
 
 const ohno = localFont({
   src: './Fonts/OhnoSoftieVariable.woff2',
   variable: '--font-ohno',
   display: 'swap',
-  // Because it’s a variable font, you don’t need to specify weight/style ranges
+  // Because it's a variable font, you don't need to specify weight/style ranges
 })
 
 const geistSans = Geist({
@@ -27,15 +28,17 @@ export const metadata: Metadata = {
   description: "At Cuddles Preschool, we believe that every child's journey begins with a sense of wonder, joy, and discovery. We are more than just a place for early education, we're a second home where children feel loved, valued, and inspired to explore the world around them.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteSettings = await getSiteSettings();
+
   return (
     <html lang="en" className={`${ohno.className} ${geistSans.variable} ${geistMono.variable}`}>
       <body className="antialiased font-ohno">
-        <RootLayoutClient >
+        <RootLayoutClient siteSettings={siteSettings}>
           {children}
         </RootLayoutClient>
       </body>

@@ -7,13 +7,15 @@ import NavBar from "@/components/NavBar/Navbar";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { initializeAutoCompact } from "@/lib/auto-compact";
+import { SiteSettings } from "@/lib/types";
 
 
 type RootLayoutClientProps = {
     children: React.ReactNode;
+    siteSettings: SiteSettings | null;
 };
 
-export default function RootLayoutClient({ children }: RootLayoutClientProps) {
+export default function RootLayoutClient({ children, siteSettings }: RootLayoutClientProps) {
     const pathname = usePathname();
 
     // Initialize AutoCompact system on client side
@@ -39,7 +41,7 @@ export default function RootLayoutClient({ children }: RootLayoutClientProps) {
 
     return (
         <>
-            {shouldShowHeaderFooter && <NavBar />}
+            {shouldShowHeaderFooter && <NavBar siteSettings={siteSettings} />}
             <main className={`h-max min-h-[200px] md:min-h-[500px] ${shouldShowHeaderFooter ? "mt-[65px] md:mt-[81px]" : ""} box-border`}>
                 <MotionWrapper>
                     {children}

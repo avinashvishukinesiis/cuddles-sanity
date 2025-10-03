@@ -371,11 +371,15 @@ export const queries = {
     }
   }`,
 
-  // Site settings
-  siteSettings: `*[_type == "siteSettings"][0]{
-    siteName,
-    siteDescription,
+  // Site settings / Footer
+  siteSettings: `*[_type == "footer"][0]{
+    logo,
+    description,
+    socialMedia,
+    usefulLinks,
     contactInfo,
-    socialMedia
+    branches,
+    copyright,
+    footerVector
   }`
 }

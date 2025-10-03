@@ -80,19 +80,25 @@ export interface Testimonial {
 
 export interface SiteSettings {
   _id: string
-  _type: 'siteSettings'
-  siteName: string
-  siteDescription: string
-  contactInfo: {
-    phone: string
-    email: string
-    address: string
-  }
+  _type: 'footer'
+  logo?: SanityImageSource
+  description: string
   socialMedia: {
     facebook?: string
     instagram?: string
-    twitter?: string
+    linkedin?: string
   }
+  usefulLinks: Array<{
+    title: string
+    url: string
+  }>
+  contactInfo: {
+    phone: string
+    email: string
+  }
+  branches: string[]
+  copyright: string
+  footerVector?: SanityImageSource
 }
 
 export interface HomePage {

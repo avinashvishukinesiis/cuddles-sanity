@@ -1,5 +1,6 @@
 import React from 'react'
 import { Assistance } from '@/lib/types'
+import { urlFor } from '@/lib/sanity'
 
 interface HeroSectionProps {
     assistanceData?: Assistance | null
@@ -22,14 +23,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ assistanceData }) => {
 
     const heroData = assistanceData?.heroSection || defaultData.heroSection
 
-    // Background image available but using CSS class instead
-    // const backgroundImageUrl = heroData.backgroundImage
-    //     ? urlFor(heroData.backgroundImage).url()
-    //     : null;
+    const backgroundImageUrl = heroData.backgroundImage
+        ? urlFor(heroData.backgroundImage).url()
+        : '/assitance_hero_image.jpg';
+
     return (
         <section className='relative h-max'>
             {/* Hero with background */}
-            <div className="w-full h-[80vh] assistance-hero-bg bg-cover bg-center bg-no-repeat relative overflow-hidden">
+            <div
+                className="w-full h-[80vh] bg-cover bg-center bg-no-repeat relative overflow-hidden"
+                style={{
+                    backgroundImage: `url('${backgroundImageUrl}')`
+                }}
+            >
                 {/* Responsive Wave */}
                 <svg
                     className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-40"

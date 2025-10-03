@@ -2,12 +2,32 @@ import React from 'react'
 import { FaLocationDot } from 'react-icons/fa6'
 import { HiMail } from 'react-icons/hi'
 import { IoCall } from 'react-icons/io5'
+import { Contact } from '@/lib/types'
+import { urlFor } from '@/lib/sanity'
 
-const HeroSection = () => {
+interface HeroSectionProps {
+    contactData?: Contact | null
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ contactData }) => {
+    const heroData = contactData?.heroSection || {
+        title: 'We are here to guide you through the first step into your child\'s journey',
+        backgroundImage: null
+    }
+
+    const backgroundImageUrl = heroData.backgroundImage
+        ? urlFor(heroData.backgroundImage).url()
+        : '/contactroom.jpg';
+
     return (
         <section className='relative h-max'>
             {/* Hero with background */}
-            <div className="w-full h-[80vh] contactroom-hero-bg bg-cover bg-center bg-no-repeat relative overflow-hidden">
+            <div
+                className="w-full h-[80vh] bg-cover bg-center bg-no-repeat relative overflow-hidden"
+                style={{
+                    backgroundImage: `url('${backgroundImageUrl}')`
+                }}
+            >
                 {/* Responsive Wave */}
                 <svg
                     className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-40"
@@ -26,7 +46,7 @@ const HeroSection = () => {
             <div className="w-full h-max bg-white flex items-center justify-center pt-8">
                 <div className='w-full px-4 md:px-0 flex flex-col gap-8'>
                     <h2 className='font-extrabold text-3xl md:text-5xl text-[#9769A5]  text-center'>
-                        We are here to guide you through the first step into your child’s journey
+                        {heroData.title}
                     </h2>
 
                     <div className='w-full flex flex-col gap-6 md:px-[5vw]'>

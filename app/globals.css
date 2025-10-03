@@ -33,26 +33,6 @@
     }
 }
 
-.hero-bg {
-    background-image: url('/Hero_image.png');
-}
-
-.about-hero-bg {
-    background-image: url('/About_hero_image.jpg');
-}
-
-.curriculum-hero-bg {
-    background-image: url('/classroom.jpg');
-}
-
-.assistance-hero-bg {
-    background-image: url('/assitance_hero_image.jpg');
-}
-
-.contactroom-hero-bg {
-    background-image: url('/contactroom.jpg');
-}
-
-.hallroom-hero-bg {
-    background-image: url('/hallroom.jpg');
-}
+/* Hero background CSS classes removed - now managed via Sanity CMS */
+/* All hero sections now use inline styles with Sanity image URLs */
+/* Fallback images are handled in component TypeScript code */

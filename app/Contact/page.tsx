@@ -1,11 +1,13 @@
 import HeroSection from "@/components/Contact/HeroSection/HeroSection"
 import LetsConnect from "@/components/LetsConnect/letsConnect"
+import { getContact } from '@/lib/sanity-utils'
 
+const page = async () => {
+    const contactData = await getContact()
 
-const page = () => {
     return (
         <div className="flex flex-col font-ohno">
-            <HeroSection/>
+            <HeroSection contactData={contactData} />
             <LetsConnect/>
         </div>
     )

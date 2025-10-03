@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { IoIosStar } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { autoFetchHomePage } from "@/lib/auto-data-fetcher";
@@ -41,10 +42,12 @@ export function EarlyEducationSection() {
     <section aria-labelledby="why-early-education" className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-10 ">
       {/* Hero image */}
       <div className="w-full flex items-center justify-center">
-        <img
+        <Image
           src={content.image ? urlFor(content.image).url() : "/early-education.jpg"}
           alt="Children playing with colorful balls on a green lawn"
           className="h-auto w-full md:max-w-[500px] rounded-3xl shadow-lg"
+          width={500}
+          height={400}
         />
       </div>
 

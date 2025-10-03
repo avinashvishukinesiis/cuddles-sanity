@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Curriculum } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
@@ -83,10 +84,12 @@ const SubjectAreas: React.FC<SubjectAreasProps> = ({ curriculumData }) => {
                                         className="w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4"
                                         style={{ backgroundColor: `${subject.color}20` }}
                                     >
-                                        <img
+                                        <Image
                                             src={urlFor(subject.icon).url()}
                                             alt={`${subject.title} icon`}
                                             className="w-10 h-10"
+                                            width={40}
+                                            height={40}
                                         />
                                     </div>
                                 ) : (

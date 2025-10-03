@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { Testimonial as TestimonialType } from "@/lib/types"
@@ -47,9 +48,9 @@ export default function Testimonial({ testimonials: sanityTestimonials }: Testim
         : defaultTestimonials
     const [currentIndex, setIndex] = useState(0)
 
-    const nextSlide = () => {
+    const nextSlide = useCallback(() => {
         setIndex((prev) => (prev + 1) % testimonials.length)
-    }
+    }, [testimonials.length])
 
     const prevSlide = () => {
         setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
@@ -118,7 +119,7 @@ export default function Testimonial({ testimonials: sanityTestimonials }: Testim
     return (
         <section className="flex flex-col items-center justify-center w-screen">
             <h2 className="text-3xl md:text-5xl font-extrabold text-purple mb-4 relative">
-                <img src="./heartDoodle.svg" alt="clould vector art" className="absolute bottom-5 left-[-35]" />
+                <Image src="./heartDoodle.svg" alt="clould vector art" className="absolute bottom-5 left-[-35]" width={48} height={48} />
                 Testimonials
             </h2>
             <p className="text-purple text-3xl mb-8">Why Parents Choose Cuddles</p>
@@ -163,11 +164,12 @@ export default function Testimonial({ testimonials: sanityTestimonials }: Testim
                                     className="absolute w-[80dvw] md:w-full h-full bg-white shadow-xl rounded-2xl flex flex-col md:flex-row items-center overflow-hidden px-6"
                                 >
                                     {/* Passport image */}
-                                    <div className="flex-shrink-0">
-                                        <img
+                                    <div className="flex-shrink-0 relative w-24 h-28 md:w-36 md:h-40">
+                                        <Image
                                             src={t.img}
                                             alt={t.name}
-                                            className="w-24 h-28 md:w-36 md:h-40 object-cover rounded-lg shadow"
+                                            className="object-cover rounded-lg shadow"
+                                            fill
                                         />
                                     </div>
 

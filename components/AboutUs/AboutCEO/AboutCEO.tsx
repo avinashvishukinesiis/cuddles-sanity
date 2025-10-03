@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { AboutUs } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
 
@@ -32,10 +33,12 @@ const AboutCEO: React.FC<AboutCEOProps> = ({ aboutData }) => {
                     {ceoData.sectionTitle}
                 </h2>
             </header>
-            <img
+            <Image
                 src={ceoData.image ? urlFor(ceoData.image).url() : "./CEO.jpg"}
                 alt={`${ceoData.name} - ${ceoData.title}`}
                 className='max-w-[500px] rounded-2xl'
+                width={500}
+                height={500}
             />
             <div className='flex flex-col justify-center items-center gap-8 text-purple text-center max-w-3xl'>
                 <div className='flex flex-col gap-4 items-center'>

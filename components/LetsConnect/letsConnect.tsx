@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { AboutUs } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
@@ -106,13 +107,15 @@ export default function LetsConnect({ aboutUsData }: LetsConnectProps) {
                     >
                         {letsConnectData.subtitle}
                         {letsConnectData.heartDecoration ? (
-                            <img
+                            <Image
                                 src={urlFor(letsConnectData.heartDecoration).url()}
                                 alt="Heart decoration"
                                 className="w-64 absolute left-[-200px] top-[-90px]"
+                                width={256}
+                                height={256}
                             />
                         ) : (
-                            <img src="./handHeart.svg" alt="Hand heart decoration" className="w-64 absolute left-[-200px] top-[-90px]" />
+                            <Image src="./handHeart.svg" alt="Hand heart decoration" className="w-64 absolute left-[-200px] top-[-90px]" width={256} height={256} />
                         )}
                     </motion.p>
                 </header>
@@ -132,18 +135,20 @@ export default function LetsConnect({ aboutUsData }: LetsConnectProps) {
                                     {letsConnectData.formTitle}
                                 </h2>
 
-                                <div className="overflow-hidden rounded-md ring-2 ring-purple-200">
+                                <div className="overflow-hidden rounded-md ring-2 ring-purple-200 relative h-56 md:h-72">
                                     {letsConnectData.formImage ? (
-                                        <img
+                                        <Image
                                             src={urlFor(letsConnectData.formImage).url()}
                                             alt="Child in a colorful classroom"
-                                            className="h-56 w-full object-cover md:h-72"
+                                            className="object-cover"
+                                            fill
                                         />
                                     ) : (
-                                        <img
+                                        <Image
                                             src="/LetsConnect.png"
                                             alt="Child in a colorful classroom"
-                                            className="h-56 w-full object-cover md:h-72"
+                                            className="object-cover"
+                                            fill
                                         />
                                     )}
                                 </div>

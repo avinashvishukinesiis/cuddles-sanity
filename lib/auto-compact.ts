@@ -162,15 +162,9 @@ export class AutoCompact {
   private initializeImageOptimizer() {
     // Set up image performance tracking
     if (typeof window !== 'undefined') {
-      const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement
-            // Track lazy loading performance
-            console.log(`[AutoCompact] Lazy loading: ${img.src}`)
-          }
-        })
-      })
+      // Image optimization is handled by Next.js Image component
+      // This is a placeholder for future custom image optimization
+      console.log('[AutoCompact] Image optimizer initialized')
     }
 
     systemHealth.imageOptimizer = 'active'

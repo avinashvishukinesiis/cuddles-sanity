@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { AboutUs } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
 
@@ -32,19 +33,23 @@ const VissionAndMission: React.FC<VissionAndMissionProps> = ({ aboutData }) => {
                 </header>
                 <div className='max-w-[700px] grid md:grid-cols-2 md:grid-rows-1 grid-cols-1 grid-row-2 items-center justify-center text-white text-center gap-16'>
                     <div className='flex flex-col gap-4 justify-center items-center'>
-                        <img
+                        <Image
                             src={visionMissionData.visionIcon ? urlFor(visionMissionData.visionIcon).url() : "./eyes.svg"}
                             className='w-8'
                             alt="vision icon"
+                            width={32}
+                            height={32}
                         />
                         <h2 className='text-2xl font-extrabold'>Vision</h2>
                         <p>{visionMissionData.vision}</p>
                     </div>
                     <div className='flex flex-col gap-4 justify-center items-center'>
-                        <img
+                        <Image
                             src={visionMissionData.missionIcon ? urlFor(visionMissionData.missionIcon).url() : "./hand-heart.svg"}
                             className='w-8'
                             alt="mission icon"
+                            width={32}
+                            height={32}
                         />
                         <h2 className='text-2xl font-extrabold'>Mission</h2>
                         <p>{visionMissionData.mission}</p>

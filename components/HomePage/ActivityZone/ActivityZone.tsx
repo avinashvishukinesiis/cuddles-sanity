@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper/modules"
 
@@ -58,11 +59,12 @@ const ActivityZone = () => {
                     {activities.map((activity, index) => (
                         <SwiperSlide key={index} className="max-w-[280px] sm:max-w-[350px] lg:max-w-[400px]">
                             <div className="rounded-lg shadow-lg overflow-hidden bg-white transition-transform">
-                                <div className="h-48">
-                                    <img
+                                <div className="h-48 relative">
+                                    <Image
                                         src={activity.src}
                                         alt={activity.title}
-                                        className="w-full h-full object-cover"
+                                        className="object-cover"
+                                        fill
                                     />
                                 </div>
                                 <div className="p-4 text-start">

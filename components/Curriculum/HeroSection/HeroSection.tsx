@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Curriculum } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
@@ -134,29 +135,31 @@ const HeroSection: React.FC<HeroSectionProps> = ({ curriculumData }) => {
                                 {/* Program Icon */}
                                 <div className="absolute top-4 right-4 opacity-80">
                                     {program.icon && typeof program.icon === 'object' && (
-                                        <img
+                                        <Image
                                             src={urlFor(program.icon as SanityImageSource).url()}
                                             alt={`${program.title} icon`}
                                             className="w-12 h-12"
+                                            width={48}
+                                            height={48}
                                         />
                                     )}
                                     {!program.icon && program.title === 'Infants' && (
-                                        <img src="./curStar.svg" alt="Star vector" className="w-12 h-12" />
+                                        <Image src="./curStar.svg" alt="Star vector" className="w-12 h-12" width={48} height={48} />
                                     )}
                                     {!program.icon && program.title === 'Toddler' && (
-                                        <img src="./fallingstar.svg" alt="Falling star" className="w-12 h-12" />
+                                        <Image src="./fallingstar.svg" alt="Falling star" className="w-12 h-12" width={48} height={48} />
                                     )}
                                     {!program.icon && program.title === 'Play group' && (
-                                        <img src="./bluesunvector.svg" alt="Sun icon" className="w-12 h-12" />
+                                        <Image src="./bluesunvector.svg" alt="Sun icon" className="w-12 h-12" width={48} height={48} />
                                     )}
                                     {!program.icon && program.title === 'Nursery' && (
-                                        <img src="./starspark.svg" alt="Star icon" className="w-12 h-12" />
+                                        <Image src="./starspark.svg" alt="Star icon" className="w-12 h-12" width={48} height={48} />
                                     )}
                                     {!program.icon && program.title === 'Prep-1' && (
-                                        <img src="./heartvector.png" alt="Heart vector art" className="w-12 h-12" />
+                                        <Image src="./heartvector.png" alt="Heart vector art" className="w-12 h-12" width={48} height={48} />
                                     )}
                                     {!program.icon && program.title === 'Prep-2' && (
-                                        <img src="./ThunderVector.svg" alt="Thunder vector art" className="w-12 h-12" />
+                                        <Image src="./ThunderVector.svg" alt="Thunder vector art" className="w-12 h-12" width={48} height={48} />
                                     )}
                                 </div>
                             </div>

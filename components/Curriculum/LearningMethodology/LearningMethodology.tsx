@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Curriculum } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
@@ -70,10 +71,12 @@ const LearningMethodology: React.FC<LearningMethodologyProps> = ({ curriculumDat
                                         className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
                                         style={{ backgroundColor: `${method.color}20` }}
                                     >
-                                        <img
+                                        <Image
                                             src={urlFor(method.icon as SanityImageSource).url()}
                                             alt={`${method.title} icon`}
                                             className="w-8 h-8"
+                                            width={32}
+                                            height={32}
                                         />
                                     </div>
                                 )}

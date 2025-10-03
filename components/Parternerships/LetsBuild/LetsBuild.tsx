@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Partnerships } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
@@ -111,11 +112,12 @@ export default function LetsBuild({ partnershipsData }: LetsBuildProps) {
                                     Partner <br /> with us !
                                 </h2>
 
-                                <div className="overflow-hidden rounded-md ring-2 ring-purple-200">
-                                    <img
+                                <div className="overflow-hidden rounded-md ring-2 ring-purple-200 relative h-72 md:h-[450px]">
+                                    <Image
                                         src={formImageUrl}
                                         alt="Child in a colorful classroom"
-                                        className="w-full object-cover h-72 md:h-[450px]"
+                                        className="object-cover"
+                                        fill
                                     />
                                 </div>
                             </div>

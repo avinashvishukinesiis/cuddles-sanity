@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { ImCross } from "react-icons/im";
 import { client, urlFor } from "@/lib/sanity";
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
@@ -101,7 +102,7 @@ const Include = () => {
                             return (
                                 <div key={item.id} className='grid md:grid-cols-2 grid-cols-1 md:grid-rows-1 grid-rows-2 gap-8 w-full'>
                                     <div className='flex gap-4 items-center'>
-                                        <img src={item.icon} alt={item.include} className='h-6' />
+                                        <Image src={item.icon} alt={item.include} className='h-6' width={24} height={24} />
                                         <p className='text-white text-[14px] text-center'>{item.include}</p>
                                     </div>
                                     <div className='flex gap-4 md:items-center md:justify-center relative pl-10 md:pl-6'>

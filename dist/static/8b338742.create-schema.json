@@ -1,0 +1,3731 @@
+[
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "initialValue": "Driven by purpose and care",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          },
+          {
+            "initialValue": "Founded in 2008, Cuddles Preschool has evolved into a trusted space for early learning, where happy, confident, and independent children thrive. Over the years, we've nurtured hundreds of little learners and witnessed their incredible journeys—each child's growth is a story that continues to inspire us.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "description",
+            "type": "text",
+            "title": "Hero Description"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload the hero background image (current: /About_hero_image.jpg)",
+            "name": "backgroundImage",
+            "type": "image"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Our Vision & mission",
+            "name": "sectionTitle",
+            "type": "string"
+          },
+          {
+            "initialValue": "We envision a future where early childhood is honoured as the most powerful stage of learning. At Cuddles, we strive to redefine preschool education by creating environments where curiosity is cherished, imagination is nurtured, and the joy of learning lasts a lifetime.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "vision",
+            "type": "text",
+            "title": "Vision Text"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload vision icon (current: /eyes.svg)",
+            "name": "visionIcon",
+            "type": "image"
+          },
+          {
+            "initialValue": "Our mission is to nurture young minds through playful, purposeful learning that builds strong foundations for life. We aim to create a joyful environment where every child feels safe, supported, and inspired to grow with confidence and creativity.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "mission",
+            "type": "text",
+            "title": "Mission Text"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload mission icon (current: /hand-heart.svg)",
+            "name": "missionIcon",
+            "type": "image"
+          }
+        ],
+        "name": "visionAndMissionSection",
+        "type": "object",
+        "title": "Vision and Mission Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "About The CEO",
+            "name": "sectionTitle",
+            "type": "string"
+          },
+          {
+            "initialValue": "Chandrika Bharath",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "name",
+            "type": "string",
+            "title": "CEO Name"
+          },
+          {
+            "initialValue": "CEO & Founder",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "CEO Title/Position"
+          },
+          {
+            "of": [
+              {
+                "type": "text"
+              }
+            ],
+            "name": "description",
+            "type": "array",
+            "title": "CEO Description"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload CEO photo (current: /CEO.jpg)",
+            "name": "image",
+            "type": "image",
+            "title": "CEO Photo"
+          }
+        ],
+        "name": "aboutCeoSection",
+        "type": "object",
+        "title": "About CEO Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Frequently Asked Questions",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": [
+              {
+                "question": "What age groups do you accept?",
+                "answer": "We take kids of 3 months and onwards.",
+                "order": 1
+              },
+              {
+                "question": "In what ways can learning via play help children perform better in school?",
+                "answer": "Learning through play helps children develop critical thinking skills, creativity, and social abilities. It makes learning enjoyable and memorable, leading to better retention and academic performance.",
+                "order": 2
+              },
+              {
+                "question": "What security steps do you take, and how do you let parents know?",
+                "answer": "We maintain strict security protocols including background checks for all staff, secure entry systems, regular safety drills, and real-time communication with parents through our app and daily reports.",
+                "order": 3
+              },
+              {
+                "question": "Are parents updated and involved in school happenings?",
+                "answer": "Yes! We provide daily updates through our parent app, regular newsletters, parent-teacher conferences, and special events. We believe in maintaining open communication with families.",
+                "order": 4
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "question",
+                    "type": "string"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "answer",
+                    "type": "text"
+                  },
+                  {
+                    "name": "order",
+                    "type": "number",
+                    "title": "Display Order"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "faqs",
+            "type": "array",
+            "title": "FAQ Items"
+          }
+        ],
+        "name": "faqSection",
+        "type": "object",
+        "title": "FAQ Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Let's Connect",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "We'd love to hear from you! Whether you have questions about our programs or want to schedule a visit, our team is here to help.",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": "Your Child's Bright Future Starts Here!",
+            "name": "formTitle",
+            "type": "string"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload form image (current: /LetsConnect.png)",
+            "name": "formImage",
+            "type": "image"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload heart decoration (current: /hand-heart.svg)",
+            "name": "heartDecoration",
+            "type": "image",
+            "title": "Heart Decoration Image"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload cloud icon (current: /cloud.svg)",
+            "name": "cloudIcon",
+            "type": "image"
+          }
+        ],
+        "name": "letsConnectSection",
+        "type": "object"
+      }
+    ],
+    "name": "aboutUs",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Program Title"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Program Image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "features",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "ageGroup",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "program",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "e.g., Parent, Teacher, etc.",
+        "name": "role",
+        "type": "string",
+        "title": "Role/Relation"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "content",
+        "type": "text",
+        "title": "Testimonial Content"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Photo"
+      },
+      {
+        "options": {
+          "list": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              },
+              {
+                "flag": "max",
+                "constraint": 5
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "rating",
+        "type": "number"
+      }
+    ],
+    "name": "testimonial",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Upload footer logo (current: ./footer_logo.svg)",
+        "name": "logo",
+        "type": "image",
+        "title": "Footer Logo"
+      },
+      {
+        "initialValue": "Plant the roots of lifelong learning with Cuddles! Visit us and discover how bright beginnings shape brighter futures",
+        "name": "description",
+        "type": "text",
+        "title": "Footer Description"
+      },
+      {
+        "fields": [
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "facebook",
+            "type": "url",
+            "title": "Facebook URL"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "instagram",
+            "type": "url",
+            "title": "Instagram URL"
+          },
+          {
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "linkedin",
+            "type": "url",
+            "title": "LinkedIn URL"
+          }
+        ],
+        "name": "socialMedia",
+        "type": "object"
+      },
+      {
+        "initialValue": [
+          {
+            "title": "About Us",
+            "url": "/AboutUs"
+          },
+          {
+            "title": "Curriculum",
+            "url": "/Curriculum"
+          },
+          {
+            "title": "Partnerships",
+            "url": "/Partnerships"
+          },
+          {
+            "title": "Safety",
+            "url": "/Safety"
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string",
+                "title": "Link Title"
+              },
+              {
+                "name": "url",
+                "type": "string",
+                "title": "Link URL"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "usefulLinks",
+        "type": "array"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "+91 90360 90909",
+            "name": "phone",
+            "type": "string",
+            "title": "Phone Number"
+          },
+          {
+            "initialValue": "info@cuddles.co.in",
+            "name": "email",
+            "type": "string",
+            "title": "Email Address"
+          }
+        ],
+        "name": "contactInfo",
+        "type": "object",
+        "title": "Contact Information"
+      },
+      {
+        "initialValue": [
+          "Salarpuria Greenage",
+          "AECS Layout",
+          "Gadag"
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "branches",
+        "type": "array"
+      },
+      {
+        "initialValue": "Like-themes © All Rights Reserved - 2025",
+        "name": "copyright",
+        "type": "string",
+        "title": "Copyright Text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Upload footer vector background (current: ./footer_vector.svg)",
+        "name": "footerVector",
+        "type": "image",
+        "title": "Footer Vector Image"
+      }
+    ],
+    "name": "footer",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Home Page Content",
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Page Title"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Where imagination takes flight.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          },
+          {
+            "initialValue": "At Cuddles Preschool, we believe that every child's journey begins with a sense of wonder, joy, and discovery. We are more than just a place for early education, we're a second home where children feel loved, valued, and inspired to explore the world around them.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "description",
+            "type": "text",
+            "title": "Hero Description"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload hero background image (current: hero-bg CSS class)",
+            "name": "backgroundImage",
+            "type": "image"
+          },
+          {
+            "fields": [
+              {
+                "initialValue": "Schedule A Visit",
+                "name": "text",
+                "type": "string",
+                "title": "Button Text"
+              },
+              {
+                "initialValue": "/contact",
+                "name": "link",
+                "type": "string",
+                "title": "Button Link"
+              }
+            ],
+            "name": "primaryButton",
+            "type": "object"
+          },
+          {
+            "fields": [
+              {
+                "initialValue": "Explore Programs",
+                "name": "text",
+                "type": "string",
+                "title": "Button Text"
+              },
+              {
+                "initialValue": "/curriculum",
+                "name": "link",
+                "type": "string",
+                "title": "Button Link"
+              }
+            ],
+            "name": "secondaryButton",
+            "type": "object"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Why Early Education Matters ?",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "The first five years of a child's life are when 90% of brain development occurs. Active learning and creative experiences don't just teach skills but they build the neural pathways that determine how children think, learn, and approach challenges for life. At Cuddles, we harness this incredible potential through purposeful play, hands-on exploration, and creative expression.",
+            "name": "description",
+            "type": "text",
+            "title": "Section Description"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload early education image (current: /early-education.jpg)",
+            "name": "image",
+            "type": "image",
+            "title": "Section Image"
+          },
+          {
+            "initialValue": [
+              "Holistic Development",
+              "Experienced Educators",
+              "Safe & Inclusive Environment",
+              "Engaging Curriculum"
+            ],
+            "of": [
+              {
+                "type": "string"
+              }
+            ],
+            "name": "features",
+            "type": "array",
+            "title": "Features List"
+          }
+        ],
+        "name": "earlyEducationSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Cuddles Program",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "What we offer ?",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload sun decoration (current: ./sun.svg)",
+            "name": "sunDecoration",
+            "type": "image",
+            "title": "Sun Decoration Image"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Program Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Program Description"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload program image (cp1.png, cp2.png, cp3.png, cp4.png)",
+                    "name": "image",
+                    "type": "image",
+                    "title": "Program Image"
+                  },
+                  {
+                    "name": "order",
+                    "type": "number",
+                    "title": "Display Order"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "programItems",
+            "type": "array"
+          }
+        ],
+        "name": "cuddlesProgramSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "12 different activity zones",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Activity Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Activity Description"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload activity image (photo/1.jpg to photo/42.jpg)",
+                    "name": "image",
+                    "type": "image",
+                    "title": "Activity Image"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "activityItems",
+            "type": "array"
+          }
+        ],
+        "name": "activityZoneSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "What's Included and what's Not",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "We thoughtfully design every part of a child's early years.",
+            "name": "description",
+            "type": "text",
+            "title": "Section Description"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "include",
+                    "type": "string",
+                    "title": "What's Included"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "exclude",
+                    "type": "string",
+                    "title": "What's Not Included"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload item icon (report.png, blub.png, medal.png, thumbsup.png)",
+                    "name": "icon",
+                    "type": "image",
+                    "title": "Item Icon"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "includeItems",
+            "type": "array"
+          }
+        ],
+        "name": "includeSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Ready to give your child the best start?",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Let's connect and explore how Cuddles can nurture your child's growth and happiness.",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload form image (current: /LetsConnect.png)",
+            "name": "formImage",
+            "type": "image"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload heart decoration (current: ./handHeart.svg)",
+            "name": "heartDecoration",
+            "type": "image",
+            "title": "Heart Decoration Image"
+          }
+        ],
+        "name": "letsConnectSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "We Are Proud Winners Of",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": [
+              "Brainfeed",
+              "Parents choice awards",
+              "Education today",
+              "India Preschool Jury Awards"
+            ],
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "of": [
+              {
+                "type": "string"
+              }
+            ],
+            "name": "awards",
+            "type": "array",
+            "title": "Awards List"
+          }
+        ],
+        "name": "awardsSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Frequently Asked Questions",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "question",
+                    "type": "string"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "answer",
+                    "type": "text"
+                  },
+                  {
+                    "name": "order",
+                    "type": "number",
+                    "title": "Display Order"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "faqs",
+            "type": "array",
+            "title": "FAQ Items"
+          }
+        ],
+        "name": "faqSection",
+        "type": "object",
+        "title": "FAQ Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "What Parents Say",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Hear from our happy families",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "name",
+                    "type": "string"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "description": "e.g., Parent, Teacher, etc.",
+                    "name": "role",
+                    "type": "string",
+                    "title": "Role/Relation"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "content",
+                    "type": "text",
+                    "title": "Testimonial Content"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "name": "image",
+                    "type": "image",
+                    "title": "Photo"
+                  },
+                  {
+                    "options": {
+                      "list": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                      ]
+                    },
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "valid",
+                            "constraint": [
+                              1,
+                              2,
+                              3,
+                              4,
+                              5
+                            ]
+                          },
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          },
+                          {
+                            "flag": "min",
+                            "constraint": 1
+                          },
+                          {
+                            "flag": "max",
+                            "constraint": 5
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "rating",
+                    "type": "number"
+                  },
+                  {
+                    "description": "Show in main testimonials carousel",
+                    "name": "featured",
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "displayOrder",
+                    "type": "number"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "testimonials",
+            "type": "array"
+          }
+        ],
+        "name": "testimonialsSection",
+        "type": "object"
+      }
+    ],
+    "name": "homePage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload hero background image (current: curriculum-hero-bg CSS class)",
+            "name": "backgroundImage",
+            "type": "image"
+          },
+          {
+            "initialValue": "Our thoughtfully designed curriculum",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          },
+          {
+            "initialValue": "In this period of STEM learning and rushing milestones, we have designed our programs to celebrate children's journey toward learning and discovering their passion. Our curriculum is designed to grow with your child, gently and intentionally supporting their development at every stage.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "description",
+            "type": "text",
+            "title": "Hero Description"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Program Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "ageRange",
+                    "type": "string"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "color",
+                    "type": "string",
+                    "title": "Theme Color"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload program icon (curStar.svg, fallingstar.svg, bluesunvector.svg, starspark.svg, heartvector.png, ThunderVector.svg)",
+                    "name": "icon",
+                    "type": "image",
+                    "title": "Program Icon"
+                  },
+                  {
+                    "initialValue": 1,
+                    "name": "colSpan",
+                    "type": "number",
+                    "title": "Column Span"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "programs",
+            "type": "array"
+          }
+        ],
+        "name": "programsSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "A Day at Cuddles",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Every day at Cuddles follows a rhythm designed to comfort, inspire, and engage. Here's what a typical day looks like",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "description",
+            "type": "text",
+            "title": "Section Description"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "timeSlot",
+                    "type": "string"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "dailySchedule",
+            "type": "array"
+          }
+        ],
+        "name": "dayAtCuddlesSection",
+        "type": "object",
+        "title": "Day at Cuddles Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Our Learning Methodologies",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Research-based approaches that make learning meaningful and joyful",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "Montessori Approach",
+                "description": "Child-led learning with specially designed materials that encourage independence, concentration, and a love for learning.",
+                "keyFeatures": [
+                  "Self-directed activity",
+                  "Mixed age classrooms",
+                  "Specialized educational materials",
+                  "Freedom of movement and choice"
+                ],
+                "color": "#9769A5"
+              },
+              {
+                "title": "STEM Integration",
+                "description": "Science, Technology, Engineering, and Math concepts introduced through hands-on experiments and real-world problem solving.",
+                "keyFeatures": [
+                  "Inquiry-based learning",
+                  "Critical thinking development",
+                  "Creative problem solving",
+                  "Real-world applications"
+                ],
+                "color": "#4AA6B1"
+              },
+              {
+                "title": "Creative Arts Integration",
+                "description": "Art, music, and creative expression woven throughout the curriculum to develop imagination and self-expression.",
+                "keyFeatures": [
+                  "Multi-sensory experiences",
+                  "Creative thinking",
+                  "Cultural appreciation",
+                  "Emotional expression"
+                ],
+                "color": "#EBAA35"
+              },
+              {
+                "title": "Play-Based Learning",
+                "description": "Learning happens naturally through purposeful play, exploration, and hands-on experiences that spark curiosity.",
+                "keyFeatures": [
+                  "Learning through play",
+                  "Hands-on exploration",
+                  "Natural curiosity",
+                  "Joyful discovery"
+                ],
+                "color": "#F9839D"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Method Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Method Description"
+                  },
+                  {
+                    "of": [
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "name": "keyFeatures",
+                    "type": "array"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "name": "icon",
+                    "type": "image",
+                    "title": "Method Icon"
+                  },
+                  {
+                    "name": "color",
+                    "type": "string",
+                    "title": "Theme Color"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "methodologies",
+            "type": "array",
+            "title": "Teaching Methods"
+          }
+        ],
+        "name": "learningMethodologySection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Our Subject Areas",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Comprehensive curriculum covering all aspects of child development",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "Language & Literacy",
+                "description": "Building communication skills through storytelling, phonics, vocabulary development, and early reading and writing experiences.",
+                "activities": [
+                  "Story time",
+                  "Phonics games",
+                  "Writing practice",
+                  "Vocabulary building",
+                  "Drama and role play"
+                ],
+                "color": "#9769A5"
+              },
+              {
+                "title": "Mathematics & Logic",
+                "description": "Exploring numbers, patterns, shapes, and problem-solving through hands-on activities and real-world applications.",
+                "activities": [
+                  "Number recognition",
+                  "Pattern making",
+                  "Shape exploration",
+                  "Counting games",
+                  "Simple problem solving"
+                ],
+                "color": "#4AA6B1"
+              },
+              {
+                "title": "Science & Discovery",
+                "description": "Encouraging curiosity about the natural world through experiments, observations, and hands-on exploration.",
+                "activities": [
+                  "Nature walks",
+                  "Simple experiments",
+                  "Weather observation",
+                  "Plant care",
+                  "Animal studies"
+                ],
+                "color": "#EBAA35"
+              },
+              {
+                "title": "Creative Arts & Music",
+                "description": "Developing creativity and self-expression through art, music, dance, and various creative mediums.",
+                "activities": [
+                  "Painting and drawing",
+                  "Music and rhythm",
+                  "Dance and movement",
+                  "Craft projects",
+                  "Creative expression"
+                ],
+                "color": "#F9839D"
+              },
+              {
+                "title": "Physical Development",
+                "description": "Building gross and fine motor skills through active play, sports, and coordination activities.",
+                "activities": [
+                  "Outdoor play",
+                  "Yoga and stretching",
+                  "Ball games",
+                  "Climbing activities",
+                  "Fine motor skills"
+                ],
+                "color": "#58BAC6"
+              },
+              {
+                "title": "Social-Emotional Learning",
+                "description": "Developing emotional intelligence, empathy, and social skills through group activities and mindful practices.",
+                "activities": [
+                  "Circle time",
+                  "Emotion recognition",
+                  "Conflict resolution",
+                  "Sharing and cooperation",
+                  "Mindfulness"
+                ],
+                "color": "#69CEE9"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Subject Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Subject Description"
+                  },
+                  {
+                    "of": [
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "name": "activities",
+                    "type": "array",
+                    "title": "Key Activities"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "name": "icon",
+                    "type": "image",
+                    "title": "Subject Icon"
+                  },
+                  {
+                    "name": "color",
+                    "type": "string",
+                    "title": "Theme Color"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "subjects",
+            "type": "array",
+            "title": "Subject Areas"
+          }
+        ],
+        "name": "subjectAreasSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Assessment & Progress Tracking",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "How we monitor and celebrate your child's development",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": "We believe assessment should celebrate growth, not judge children. Our approach focuses on observing, documenting, and supporting each child's unique developmental journey.",
+            "name": "description",
+            "type": "text",
+            "title": "Section Description"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "Observational Assessment",
+                "description": "Teachers carefully observe children during their daily activities, documenting their progress, interests, and learning patterns in a natural environment.",
+                "frequency": "Daily"
+              },
+              {
+                "title": "Portfolio Documentation",
+                "description": "We create individual portfolios showcasing each child's work, growth, and achievements over time, creating a beautiful record of their learning journey.",
+                "frequency": "Weekly"
+              },
+              {
+                "title": "Developmental Milestones",
+                "description": "Regular tracking of developmental milestones across all domains - physical, cognitive, social, and emotional - ensuring holistic growth.",
+                "frequency": "Monthly"
+              },
+              {
+                "title": "Parent Conferences",
+                "description": "Regular one-on-one meetings with parents to discuss their child's progress, share observations, and collaborate on supporting their development.",
+                "frequency": "Quarterly"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Method Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Method Description"
+                  },
+                  {
+                    "name": "frequency",
+                    "type": "string"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "name": "icon",
+                    "type": "image",
+                    "title": "Method Icon"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "assessmentMethods",
+            "type": "array"
+          }
+        ],
+        "name": "assessmentSection",
+        "type": "object",
+        "title": "Assessment & Progress Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Our Learning Environments",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Thoughtfully designed spaces that inspire exploration and discovery",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": "Every space at Cuddles is intentionally designed to support different types of learning and development, creating an environment where children feel safe, engaged, and inspired.",
+            "name": "description",
+            "type": "text",
+            "title": "Section Description"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "Montessori Classroom",
+                "description": "Carefully prepared environments with child-sized furniture and materials that promote independence, concentration, and self-directed learning.",
+                "features": [
+                  "Child-sized furniture",
+                  "Organized learning materials",
+                  "Quiet work spaces",
+                  "Natural lighting",
+                  "Plants and nature elements"
+                ],
+                "ageGroups": [
+                  "2-3 years",
+                  "3-4 years",
+                  "4-5 years"
+                ]
+              },
+              {
+                "title": "Creative Arts Studio",
+                "description": "A vibrant space dedicated to artistic expression, music, and creative exploration with various materials and instruments.",
+                "features": [
+                  "Art supplies and easels",
+                  "Musical instruments",
+                  "Drama props and costumes",
+                  "Display areas for artwork",
+                  "Washable surfaces"
+                ],
+                "ageGroups": [
+                  "2-3 years",
+                  "3-4 years",
+                  "4-5 years"
+                ]
+              },
+              {
+                "title": "Science Discovery Corner",
+                "description": "An engaging area for hands-on experiments, nature observation, and scientific exploration designed to spark curiosity.",
+                "features": [
+                  "Microscopes and magnifying glasses",
+                  "Nature specimens",
+                  "Simple experiment materials",
+                  "Weather station",
+                  "Living plants"
+                ],
+                "ageGroups": [
+                  "3-4 years",
+                  "4-5 years"
+                ]
+              },
+              {
+                "title": "Outdoor Play Garden",
+                "description": "A natural outdoor environment with gardens, play structures, and open spaces for physical activity and nature connection.",
+                "features": [
+                  "Vegetable garden",
+                  "Sandbox and water play",
+                  "Climbing structures",
+                  "Open running space",
+                  "Shaded quiet areas"
+                ],
+                "ageGroups": [
+                  "2-3 years",
+                  "3-4 years",
+                  "4-5 years"
+                ]
+              },
+              {
+                "title": "Reading Nook",
+                "description": "A cozy, quiet space filled with books and comfortable seating that encourages a love for reading and storytelling.",
+                "features": [
+                  "Extensive book collection",
+                  "Comfortable seating",
+                  "Soft lighting",
+                  "Story telling props",
+                  "Quiet atmosphere"
+                ],
+                "ageGroups": [
+                  "2-3 years",
+                  "3-4 years",
+                  "4-5 years"
+                ]
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Environment Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Environment Description"
+                  },
+                  {
+                    "of": [
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "name": "features",
+                    "type": "array",
+                    "title": "Key Features"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "name": "image",
+                    "type": "image",
+                    "title": "Environment Image"
+                  },
+                  {
+                    "of": [
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "name": "ageGroups",
+                    "type": "array",
+                    "title": "Suitable Age Groups"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "environments",
+            "type": "array",
+            "title": "Learning Environments"
+          }
+        ],
+        "name": "learningEnvironmentSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Parent Partnership",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Working together to support your child's growth and development",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": "We believe parents are a child's first teachers. Our partnership approach ensures consistency between home and school, creating the best possible learning environment for your child.",
+            "name": "description",
+            "type": "text",
+            "title": "Section Description"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "Daily Communication",
+                "description": "Regular, meaningful communication about your child's daily experiences, achievements, and areas of growth through various channels.",
+                "activities": [
+                  "Daily pickup conversations",
+                  "Photo sharing",
+                  "Progress notes",
+                  "Quick check-ins",
+                  "Email updates"
+                ]
+              },
+              {
+                "title": "Home-School Consistency",
+                "description": "Collaborating to ensure consistent approaches between home and school environments, supporting your child's routines and values.",
+                "activities": [
+                  "Routine discussions",
+                  "Behavioral strategies",
+                  "Learning reinforcement",
+                  "Value alignment",
+                  "Goal setting"
+                ]
+              },
+              {
+                "title": "Parent Education & Resources",
+                "description": "Providing parents with resources, workshops, and guidance to support their child's development at home.",
+                "activities": [
+                  "Parent workshops",
+                  "Resource sharing",
+                  "Development tips",
+                  "Activity suggestions",
+                  "Reading recommendations"
+                ]
+              },
+              {
+                "title": "Family Involvement",
+                "description": "Creating opportunities for families to participate in their child's learning journey and school community.",
+                "activities": [
+                  "Family events",
+                  "Volunteer opportunities",
+                  "Classroom visits",
+                  "Special celebrations",
+                  "Community projects"
+                ]
+              },
+              {
+                "title": "Individual Support Plans",
+                "description": "Working together to create personalized approaches that meet each child's unique needs and support their optimal development.",
+                "activities": [
+                  "Goal setting meetings",
+                  "Progress reviews",
+                  "Strategy development",
+                  "Resource coordination",
+                  "Celebration planning"
+                ]
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Area Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Area Description"
+                  },
+                  {
+                    "of": [
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "name": "activities",
+                    "type": "array",
+                    "title": "Activities/Methods"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "name": "icon",
+                    "type": "image",
+                    "title": "Area Icon"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "partnershipAreas",
+            "type": "array"
+          }
+        ],
+        "name": "parentPartnershipSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Special Programs & Activities",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Enriching experiences that make learning memorable and fun",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "Nature Explorers",
+                "description": "Weekly outdoor adventures that connect children with nature through guided exploration, garden work, and environmental discovery.",
+                "duration": "Weekly sessions, 1 hour",
+                "ageGroups": [
+                  "3-4 years",
+                  "4-5 years"
+                ],
+                "highlights": [
+                  "Garden care and planting",
+                  "Nature walks and observation",
+                  "Outdoor science experiments",
+                  "Weather studies",
+                  "Wildlife discovery"
+                ],
+                "color": "#EBAA35"
+              },
+              {
+                "title": "Little Scientists",
+                "description": "Hands-on STEM activities that introduce scientific concepts through safe, age-appropriate experiments and discovery.",
+                "duration": "Bi-weekly sessions, 45 minutes",
+                "ageGroups": [
+                  "3-4 years",
+                  "4-5 years"
+                ],
+                "highlights": [
+                  "Simple chemistry experiments",
+                  "Physics through play",
+                  "Building and engineering",
+                  "Technology exploration",
+                  "Mathematical concepts"
+                ],
+                "color": "#4AA6B1"
+              },
+              {
+                "title": "Creative Expression",
+                "description": "A comprehensive arts program including visual arts, music, drama, and creative movement to develop artistic abilities.",
+                "duration": "Daily integration, 30-45 minutes",
+                "ageGroups": [
+                  "2-3 years",
+                  "3-4 years",
+                  "4-5 years"
+                ],
+                "highlights": [
+                  "Multi-media art projects",
+                  "Music and rhythm",
+                  "Drama and storytelling",
+                  "Creative movement",
+                  "Cultural arts exploration"
+                ],
+                "color": "#F9839D"
+              },
+              {
+                "title": "Young Entrepreneurs",
+                "description": "Introduction to basic economic concepts through play-based activities like classroom stores, trading, and simple business concepts.",
+                "duration": "Monthly projects, 1 hour",
+                "ageGroups": [
+                  "4-5 years"
+                ],
+                "highlights": [
+                  "Classroom marketplace",
+                  "Money recognition",
+                  "Trading games",
+                  "Resource management",
+                  "Community helpers"
+                ],
+                "color": "#9769A5"
+              },
+              {
+                "title": "Cultural Celebrations",
+                "description": "Exploring different cultures, traditions, and celebrations from around the world to build global awareness and appreciation.",
+                "duration": "Monthly themes, integrated daily",
+                "ageGroups": [
+                  "2-3 years",
+                  "3-4 years",
+                  "4-5 years"
+                ],
+                "highlights": [
+                  "International festivals",
+                  "Cultural foods tasting",
+                  "Traditional music and dance",
+                  "Language exposure",
+                  "Art from different cultures"
+                ],
+                "color": "#58BAC6"
+              },
+              {
+                "title": "Mindfulness & Yoga",
+                "description": "Daily practices that help children develop emotional regulation, body awareness, and peaceful focused attention.",
+                "duration": "Daily practice, 15-20 minutes",
+                "ageGroups": [
+                  "2-3 years",
+                  "3-4 years",
+                  "4-5 years"
+                ],
+                "highlights": [
+                  "Breathing exercises",
+                  "Gentle yoga poses",
+                  "Meditation for children",
+                  "Emotion recognition",
+                  "Stress relief techniques"
+                ],
+                "color": "#69CEE9"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Program Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Program Description"
+                  },
+                  {
+                    "name": "duration",
+                    "type": "string",
+                    "title": "Duration/Frequency"
+                  },
+                  {
+                    "of": [
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "name": "ageGroups",
+                    "type": "array"
+                  },
+                  {
+                    "of": [
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "name": "highlights",
+                    "type": "array",
+                    "title": "Program Highlights"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "name": "image",
+                    "type": "image",
+                    "title": "Program Image"
+                  },
+                  {
+                    "name": "color",
+                    "type": "string",
+                    "title": "Theme Color"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "programs",
+            "type": "array",
+            "title": "Special Programs"
+          }
+        ],
+        "name": "specialProgramsSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Frequently Asked Questions",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Get answers to common questions about our curriculum and programs",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": [
+              {
+                "question": "What teaching methodologies do you use?",
+                "answer": "We use a combination of Montessori approach, STEM integration, creative arts, and play-based learning. Our curriculum is research-based and designed to support holistic child development through hands-on, child-led activities.",
+                "category": "curriculum"
+              },
+              {
+                "question": "How do you assess my child's progress?",
+                "answer": "We use observational assessment, portfolio documentation, developmental milestone tracking, and regular parent conferences. Our approach celebrates growth rather than judging children, focusing on each child's unique developmental journey.",
+                "category": "assessment"
+              },
+              {
+                "question": "What age groups do your programs serve?",
+                "answer": "We serve children from 3 months to 6 years across six programs: Infants (3+ months), Toddler (1-2 years), Play Group (2-3 years), Nursery (3-4 years), Prep-1 (4-5 years), and Prep-2 (5-6 years). Each program is tailored to specific developmental needs.",
+                "category": "programs"
+              },
+              {
+                "question": "How do you ensure a safe learning environment?",
+                "answer": "Our learning environments are thoughtfully designed with child-sized furniture, natural lighting, and safe materials. We maintain small class sizes, have qualified staff, and create spaces that promote independence while ensuring safety and supervision.",
+                "category": "environment"
+              },
+              {
+                "question": "How do you involve parents in their child's learning?",
+                "answer": "We believe in strong parent partnerships through daily communication, regular conferences, resource sharing, family involvement opportunities, and collaborative goal setting. Parents receive updates on their child's progress and activities to support learning at home.",
+                "category": "general"
+              },
+              {
+                "question": "What makes your curriculum different from traditional preschools?",
+                "answer": "Our curriculum integrates multiple research-based approaches, emphasizes child-led learning, incorporates STEM and arts naturally, and focuses on developing the whole child. We celebrate the learning journey rather than rushing to meet arbitrary milestones.",
+                "category": "curriculum"
+              },
+              {
+                "question": "Do you offer special programs beyond regular curriculum?",
+                "answer": "Yes, we offer enriching programs like Nature Explorers, Little Scientists, Creative Expression, Cultural Celebrations, Young Entrepreneurs, and daily Mindfulness & Yoga. These programs make learning memorable and fun while developing various skills.",
+                "category": "programs"
+              },
+              {
+                "question": "How do you prepare children for elementary school?",
+                "answer": "Our Prep programs focus on school readiness through independence skills, social-emotional development, early literacy and numeracy, critical thinking, and confidence building. We ensure smooth transitions while maintaining our play-based, joyful approach to learning.",
+                "category": "programs"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "question",
+                    "type": "string"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "answer",
+                    "type": "text"
+                  },
+                  {
+                    "options": {
+                      "list": [
+                        {
+                          "title": "General",
+                          "value": "general"
+                        },
+                        {
+                          "title": "Curriculum",
+                          "value": "curriculum"
+                        },
+                        {
+                          "title": "Programs",
+                          "value": "programs"
+                        },
+                        {
+                          "title": "Assessment",
+                          "value": "assessment"
+                        },
+                        {
+                          "title": "Environment",
+                          "value": "environment"
+                        }
+                      ]
+                    },
+                    "initialValue": "general",
+                    "name": "category",
+                    "type": "string"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "faqs",
+            "type": "array",
+            "title": "FAQ Items"
+          }
+        ],
+        "name": "faqSection",
+        "type": "object",
+        "title": "FAQ Section"
+      }
+    ],
+    "name": "curriculum",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload hero background image (current: about-hero-bg CSS class)",
+            "name": "backgroundImage",
+            "type": "image"
+          },
+          {
+            "initialValue": "Collaborate with us to support your employees",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          },
+          {
+            "initialValue": "At Cuddles, we understand the challenges working parents face. That's why we offer customised daycare solutions for corporate partners, ensuring that your employees' children receive the best care and education while they focus on their work.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "description",
+            "type": "text",
+            "title": "Hero Description"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "Discounted fees",
+                "description": "Special rates based on the number of enrollments.",
+                "color": "#F0B54C"
+              },
+              {
+                "title": "Customized Solutions",
+                "description": "Tailored programs to meet your employees' needs.",
+                "color": "#DE627D"
+              },
+              {
+                "title": "Peace of Mind",
+                "description": "A safe, nurturing environment for your employees' children.",
+                "color": "#4AA6B1"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Card Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Card Description"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "color",
+                    "type": "string",
+                    "title": "Theme Color"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "benefitsCards",
+            "type": "array"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Who we partner with!",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Whether you are an industry giant or an emerging enterprise, we work closely with you to offer your employees quality preschool and day-care services that truly support their work-life balance.",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "IT & Tech Companies"
+              },
+              {
+                "title": "Multinational Corporations"
+              },
+              {
+                "title": "Government Institutions"
+              },
+              {
+                "title": "Healthcare Providers"
+              },
+              {
+                "title": "Startups and Corporate Parks"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Partner Type"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "partnerTypes",
+            "type": "array"
+          }
+        ],
+        "name": "partnerWithSection",
+        "type": "object",
+        "title": "Who We Partner With Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Why Partner With Cuddles?",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Every Day At Cuddles Follows A Rhythm Designed To Comfort, Inspire, And Engage. Here's What A Typical Day Looks Like",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "Preferential Access & Fee Benefits",
+                "description": "Corporate partners receive priority admissions and tailored fee structures, making our premium early education experience more accessible to their teams."
+              },
+              {
+                "title": "Custom Childcare Solutions",
+                "description": "We offer flexible plans including full-time preschool, day-care support, emergency care, and on-demand parenting workshops to meet your team's evolving needs."
+              },
+              {
+                "title": "Trusted Early Learning Approach",
+                "description": "Our play-based, process-driven curriculum fosters curiosity, creativity, and confidence. Children build lasting skills through experiences that go beyond academics — from emotional intelligence to collaborative thinking."
+              },
+              {
+                "title": "Reliable Communication & Involvement",
+                "description": "From parent-teacher touchpoints to real-time updates, we keep families engaged every step of the way. You can trust that every child is cared for with intention and heart."
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Benefit Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Benefit Description"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "benefits",
+            "type": "array",
+            "title": "Partnership Benefits"
+          }
+        ],
+        "name": "cuddlesPartnerSection",
+        "type": "object",
+        "title": "Why Partner With Cuddles Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "How To Enroll",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Getting Started Is Simple And Seamless.",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "initialValue": [
+              {
+                "step": "Reach Out via the corporate inquiry form below"
+              },
+              {
+                "step": "We Connect to understand your team's requirements"
+              },
+              {
+                "step": "We Curate a custom enrollment and benefit structure"
+              },
+              {
+                "step": "You Share Access to your employees"
+              },
+              {
+                "step": "Children Enroll with priority placement and onboarding support"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "step",
+                    "type": "string",
+                    "title": "Step Description"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "steps",
+            "type": "array",
+            "title": "Enrollment Steps"
+          }
+        ],
+        "name": "enrollSection",
+        "type": "object",
+        "title": "How To Enroll Section"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Let's Build a Brighter Future Together!",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Contact us to explore partnership opportunities",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Section Subtitle"
+          },
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload form image (current: /LetsBuild.png)",
+            "name": "formImage",
+            "type": "image"
+          }
+        ],
+        "name": "letsBuildSection",
+        "type": "object"
+      }
+    ],
+    "name": "partnerships",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload hero background image (current: hallroom-hero-bg CSS class)",
+            "name": "backgroundImage",
+            "type": "image"
+          },
+          {
+            "initialValue": "A secure and nurturing space for your child",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          },
+          {
+            "initialValue": "At Cuddles Preschool, safety is not just a policy. It is a part of how we care, teach, and grow. Under the leadership of our founder Chandrika Bharath, every measure is thoughtfully planned to support playful learning without compromising on protection. We create an environment where children can explore freely while being safe, healthy, and supported at every step.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "description",
+            "type": "text",
+            "title": "Hero Description"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Feature Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Feature Description"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload feature image (daily-sanitization.jpg, temperature-checks.jpg, cctv-monitoring.jpg, child-proofing.jpg, pickup-verification.jpg)",
+                    "name": "image",
+                    "type": "image",
+                    "title": "Feature Image"
+                  },
+                  {
+                    "name": "imageAlt",
+                    "type": "string",
+                    "title": "Image Alt Text"
+                  },
+                  {
+                    "options": {
+                      "list": [
+                        {
+                          "title": "Purple",
+                          "value": "purple"
+                        },
+                        {
+                          "title": "Blue",
+                          "value": "blue"
+                        },
+                        {
+                          "title": "Green",
+                          "value": "green"
+                        },
+                        {
+                          "title": "Pink",
+                          "value": "pink"
+                        }
+                      ]
+                    },
+                    "name": "titleColor",
+                    "type": "string",
+                    "title": "Title Color Theme"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "safetyFeatures",
+            "type": "array"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Continued Care for Growing Children",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "title": "Section Content"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Item Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Item Description"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload emergency item icon (trained.svg, hand-heart.svg, engage.svg)",
+                    "name": "icon",
+                    "type": "image",
+                    "title": "Item Icon"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "emergencyFeatures",
+            "type": "array"
+          }
+        ],
+        "name": "emergencySection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Healthy Habits Start Early",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Item Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Item Description"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload healthy habits image (healthy-eating.jpg, allergy-considerations.jpg, Supervision.jpg)",
+                    "name": "image",
+                    "type": "image",
+                    "title": "Item Image"
+                  },
+                  {
+                    "name": "imageAlt",
+                    "type": "string",
+                    "title": "Image Alt Text"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "healthyFeatures",
+            "type": "array",
+            "title": "Healthy Habits Features"
+          }
+        ],
+        "name": "healthyHabitsSection",
+        "type": "object"
+      }
+    ],
+    "name": "safety",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload hero background image (current: assistance-hero-bg CSS class)",
+            "name": "backgroundImage",
+            "type": "image"
+          },
+          {
+            "initialValue": "We guide every transition with care",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          },
+          {
+            "initialValue": "We make the shift to formal school environments a positive, well-supported experience for both children and parents. Every element of our program — academic, emotional, and social — helps children step into their next chapter with readiness and joy.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "description",
+            "type": "text",
+            "title": "Hero Description"
+          },
+          {
+            "initialValue": "Here's how we support this transition:",
+            "name": "subtitle",
+            "type": "string",
+            "title": "Hero Subtitle"
+          },
+          {
+            "initialValue": [
+              {
+                "title": "School Admission Guidance",
+                "description": "We offer personalised advice on selecting the right school and navigating the admission process with ease.",
+                "color": "#F0B54C"
+              },
+              {
+                "title": "Interview Readiness",
+                "description": "Through playful mock sessions, storytelling, and expression games, children develop the confidence to communicate clearly during school interviews.",
+                "color": "#DE627D"
+              },
+              {
+                "title": "Primary School Prep Activities",
+                "description": "Age-appropriate worksheets, literacy and  numeracy boosters, and skill-building sessions bridge the gap between preschool and formal education.",
+                "color": "#4AA6B1"
+              }
+            ],
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Card Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Card Description"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "color",
+                    "type": "string",
+                    "title": "Theme Color"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "transitionSupport",
+            "type": "array",
+            "title": "Transition Support Cards"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Continued Care for Growing Children",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "Our connection with families grows stronger with time. For children graduating from our programs, we offer additional opportunities for continued growth and joyful exploration.",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "description",
+            "type": "text",
+            "title": "Section Description"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Item Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Item Description"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload continued care icon (camp.svg, hand-heart.svg, engage.svg)",
+                    "name": "icon",
+                    "type": "image",
+                    "title": "Item Icon"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "careFeatures",
+            "type": "array"
+          }
+        ],
+        "name": "continuedCareSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Parent Resource Hub",
+            "name": "title",
+            "type": "string",
+            "title": "Section Title"
+          },
+          {
+            "initialValue": "We understand that parenting is a journey filled with questions and discovery. That's why we offer curated resources to help you support your child's growth at home too",
+            "name": "description",
+            "type": "text",
+            "title": "Section Description"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "title",
+                    "type": "string",
+                    "title": "Item Title"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "description",
+                    "type": "text",
+                    "title": "Item Description"
+                  },
+                  {
+                    "options": {
+                      "hotspot": true
+                    },
+                    "description": "Upload parent resource image (childonshoulder.png, writing.png, woman.png, typing.png)",
+                    "name": "image",
+                    "type": "image",
+                    "title": "Item Image"
+                  },
+                  {
+                    "name": "imageAlt",
+                    "type": "string",
+                    "title": "Image Alt Text"
+                  },
+                  {
+                    "options": {
+                      "list": [
+                        {
+                          "title": "Purple",
+                          "value": "purple"
+                        },
+                        {
+                          "title": "Blue",
+                          "value": "blue"
+                        },
+                        {
+                          "title": "Green",
+                          "value": "green"
+                        },
+                        {
+                          "title": "Pink",
+                          "value": "pink"
+                        }
+                      ]
+                    },
+                    "name": "titleColor",
+                    "type": "string",
+                    "title": "Title Color Theme"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "resources",
+            "type": "array",
+            "title": "Parent Resources"
+          }
+        ],
+        "name": "parentResourceSection",
+        "type": "object"
+      }
+    ],
+    "name": "assistance",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "description": "Upload hero background image (current: contactroom-hero-bg CSS class, contactroom.jpg)",
+            "name": "backgroundImage",
+            "type": "image"
+          },
+          {
+            "initialValue": "We are here to guide you through the first step into your child's journey",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "presence",
+                    "constraint": "required"
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "title",
+            "type": "string",
+            "title": "Hero Title"
+          }
+        ],
+        "name": "heroSection",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "name",
+                    "type": "string",
+                    "title": "Location Name"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "presence",
+                            "constraint": "required"
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "address",
+                    "type": "text",
+                    "title": "Full Address"
+                  },
+                  {
+                    "of": [
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "name": "phoneNumbers",
+                    "type": "array"
+                  },
+                  {
+                    "name": "email",
+                    "type": "string",
+                    "title": "Email Address"
+                  },
+                  {
+                    "validation": [
+                      {
+                        "rules": [
+                          {
+                            "flag": "uri",
+                            "constraint": {
+                              "options": {
+                                "scheme": [
+                                  "/^http$/",
+                                  "/^https$/"
+                                ],
+                                "allowRelative": false,
+                                "relativeOnly": false,
+                                "allowCredentials": false
+                              }
+                            }
+                          }
+                        ],
+                        "level": "error"
+                      }
+                    ],
+                    "name": "mapEmbedUrl",
+                    "type": "url",
+                    "title": "Google Maps Embed URL"
+                  },
+                  {
+                    "description": "CSS color value for the border",
+                    "name": "borderColor",
+                    "type": "string"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "locations",
+            "type": "array"
+          }
+        ],
+        "name": "locationSection",
+        "type": "object"
+      }
+    ],
+    "name": "contact",
+    "type": "document"
+  }
+]

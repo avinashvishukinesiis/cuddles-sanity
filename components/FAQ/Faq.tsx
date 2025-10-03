@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 
 const faqData = [
@@ -53,7 +54,7 @@ export default function FAQSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <img src="./cloud.svg" alt="clould vector art" className="absolute bottom-5 right-28"/>
+            <Image src="./cloud.svg" alt="clould vector art" className="absolute bottom-5 right-28" width={64} height={64} />
             FAQ&apos;s
           </motion.h2>
         </div>

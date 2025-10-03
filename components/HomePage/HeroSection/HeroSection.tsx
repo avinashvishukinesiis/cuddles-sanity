@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { FiArrowRight } from "react-icons/fi";
 import { HeroSection as HeroSectionType } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
@@ -57,14 +58,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroData }) => {
                 <div className='w-full px-4 md:px-0 md:w-[60vw] flex flex-col gap-8'>
                     <h2 className='font-extrabold text-3xl md:text-7xl text-[#9769A5] text-center'>
                         <span className='relative'>
-                            <img src="./star.svg" alt="star decoration" className='absolute md:right-36 md:bottom-4 right-12 bottom-1' />
+                            <Image src="./star.svg" alt="star decoration" className='absolute md:right-36 md:bottom-4 right-12 bottom-1' width={48} height={48} />
                             {content.title.split(' ').slice(0, 1).join(' ')}
                         </span>{' '}
                         {content.title.split(' ').slice(1, -1).join(' ')}{' '}
                         <br />
                         <span className='relative'>
                             {content.title.split(' ').slice(-1).join(' ')}
-                            <img src="./plane_vector.svg" alt="plane decoration" className='absolute md:left-40 md:top-4 left-16 top-2' />
+                            <Image src="./plane_vector.svg" alt="plane decoration" className='absolute md:left-40 md:top-4 left-16 top-2' width={48} height={48} />
                         </span>
                     </h2>
                     <p className='text-[18px] font-medium text-center text-[#9769A5]'>

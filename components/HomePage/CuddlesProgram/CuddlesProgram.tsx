@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const CuddlesProgram = () => {
   const content = [
@@ -40,7 +41,7 @@ const CuddlesProgram = () => {
             className="text-center text-balance text-5xl relative inline font-extrabold"
           >
             Cuddles Program
-            <img src="./sun.svg" alt="Sun vector" className="absolute top-[-60] left-[-100] " />
+            <Image src="./sun.svg" alt="Sun vector" className="absolute top-[-60] left-[-100] " width={80} height={80} />
           </h2>
           <h3 className="text-center text-balance text-2xl relative font-medium"
           >What we offer ?</h3>
@@ -49,7 +50,7 @@ const CuddlesProgram = () => {
           {content.map((item, index) => {
             return (
               <div key={index} className='flex flex-col gap-6 text-white text-center'>
-                <img src={item.img} alt={item.title} className='w-full rounded-2xl' />
+                <Image src={item.img} alt={item.title} className='w-full rounded-2xl' width={400} height={300} />
                 <h3 className='text-2xl font-bold'>{item.title}</h3>
                 <p className='text-[14px] px-4'>{item.para}</p>
               </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Safety } from '@/lib/types'
 import { urlFor } from '@/lib/sanity'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
@@ -36,7 +37,7 @@ const Emergency: React.FC<EmergencyProps> = ({ safetyData }) => {
                         const iconUrl = feature.icon ? urlFor(feature.icon).url() : `./trained.svg`; // fallback
                         return (
                             <div key={index} className='flex flex-col gap-4 justify-center items-center'>
-                                <img src={iconUrl} className='w-8' alt={`${feature.title} icon`} />
+                                <Image src={iconUrl} className='w-8' alt={`${feature.title} icon`} width={32} height={32} />
                                 <h2 className='text-2xl font-extrabold'>{feature.title}</h2>
                                 <p>{feature.description}</p>
                             </div>

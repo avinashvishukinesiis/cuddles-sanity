@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { IoCallOutline } from "react-icons/io5";
 import { IoMailOutline } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa6";
@@ -15,7 +16,7 @@ const Footer = () => {
             <div className="relative z-10 h-max py-8 flex flex-col items-center justify-center text-white bg-[#F9839D] px-4 md:px-20 pb-10">
                 <div className="grid grid-cols-1 grid-rows-4 md:grid-rows-1 md:grid-cols-4 w-full border-b-1 pb-4">
                     <div className="flex flex-col gap-4 items-center justify-center">
-                        <img src="./footer_logo.svg" alt="Cuddles footer logo" className="h-[36px]" />
+                        <Image src="./footer_logo.svg" alt="Cuddles footer logo" className="h-[36px]" width={120} height={36} />
                         <p className="text-center">Plant the roots of lifelong learning with Cuddles! Visit us and discover how bright beginnings shape brighter futures</p>
                         <div className="flex gap-4 justify-around w-full">
                             <FaFacebook size={30} className="text-white hover:text-purple" />
@@ -50,7 +51,7 @@ const Footer = () => {
                 <div className="py-12">
                     <p>Like-themes © All Rights Reserved - 2025</p>
                 </div>
-                <img src="./footer_vector.svg" alt="Cuddles Footer Banner" className="absolute bottom-0 h-[30vh] z-[-1]" />
+                <Image src="./footer_vector.svg" alt="Cuddles Footer Banner" className="absolute bottom-0 h-[30vh] z-[-1]" width={800} height={300} />
             </div>
         </footer>
     );

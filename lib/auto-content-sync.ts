@@ -227,7 +227,7 @@ export class AutoContentSync {
   /**
    * Handle sync errors with retry logic
    */
-  private handleSyncError(error?: unknown) {
+  private handleSyncError(_error?: unknown) {
     syncStatus.failedAttempts++
     syncStatus.syncInProgress = false
     syncStatus.isOnline = false

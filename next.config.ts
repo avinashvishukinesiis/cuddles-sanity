@@ -7,6 +7,16 @@ const nextConfig: NextConfig = {
   },
   // Skip static generation for studio route to avoid Html import issues
   skipTrailingSlashRedirect: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

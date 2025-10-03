@@ -1,12 +1,7 @@
 import { ContentCard } from '@/components/ContentCard'
 import React from 'react'
-import { Assistance } from '@/lib/types'
 
-interface ParentResourceProps {
-  assistanceData?: Assistance | null
-}
-
-const ParentResource: React.FC<ParentResourceProps> = () => {
+const ParentResource: React.FC = () => {
   const contentItems = [
     {
       id: "1",

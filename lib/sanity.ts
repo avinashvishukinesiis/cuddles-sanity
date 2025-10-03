@@ -49,7 +49,12 @@ export const queries = {
     description,
     primaryButton,
     secondaryButton,
-    backgroundImage
+    backgroundImage,
+    decorations[]{
+      name,
+      image,
+      position
+    }
   }`,
 
   // About Us content
@@ -127,6 +132,25 @@ export const queries = {
       exclude,
       icon
     }
+  }`,
+
+  // Cuddles Program Section from homePage
+  cuddlesProgramSection: `*[_type == "homePage"][0].cuddlesProgramSection{
+    title,
+    subtitle,
+    sunDecoration,
+    programItems[]{
+      title,
+      description,
+      image,
+      order
+    }
+  }`,
+
+  // Awards Section from homePage
+  awardsSection: `*[_type == "homePage"][0].awardsSection{
+    title,
+    awards
   }`,
 
   // Curriculum content

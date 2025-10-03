@@ -182,7 +182,12 @@ export async function autoFetchHeroSection(): Promise<HeroSection | null> {
     description,
     primaryButton,
     secondaryButton,
-    backgroundImage
+    backgroundImage,
+    decorations[]{
+      name,
+      image,
+      position
+    }
   }`
 
   const fallback: HeroSection = {
@@ -224,6 +229,84 @@ export async function autoFetchTestimonials(): Promise<Testimonial[]> {
     image: testimonial.image as SanityImageSource | undefined,
     rating: testimonial.rating || 5
   }))
+}
+
+/**
+ * Auto Cuddles Program Fetcher
+ */
+export async function autoFetchCuddlesProgram() {
+  const query = `*[_type == "homePage"][0].cuddlesProgramSection{
+    title,
+    subtitle,
+    sunDecoration,
+    programItems[]{
+      title,
+      description,
+      image,
+      order
+    }
+  }`
+
+  return cachedFetch('cuddlesProgram', query, null)
+}
+
+/**
+ * Auto Awards Fetcher
+ */
+export async function autoFetchAwards() {
+  const query = `*[_type == "homePage"][0].awardsSection{
+    title,
+    awards
+  }`
+
+  return cachedFetch('awards', query, null)
+}
+
+/**
+ * Auto Activity Zone Fetcher
+ */
+export async function autoFetchActivityZone() {
+  const query = `*[_type == "homePage"][0].activityZoneSection{
+    title,
+    activityItems[]{
+      title,
+      description,
+      image
+    }
+  }`
+
+  return cachedFetch('activityZone', query, null)
+}
+
+/**
+ * Auto Include Section Fetcher
+ */
+export async function autoFetchIncludeSection() {
+  const query = `*[_type == "homePage"][0].includeSection{
+    title,
+    description,
+    includeItems[]{
+      include,
+      exclude,
+      icon
+    }
+  }`
+
+  return cachedFetch('includeSection', query, null)
+}
+
+/**
+ * Auto Early Education Section Fetcher
+ */
+export async function autoFetchEarlyEducation() {
+  const query = `*[_type == "homePage"][0].earlyEducationSection{
+    title,
+    description,
+    image,
+    features
+  }`
+
+  return cachedFetch('earlyEducation', query, null)
 }
 
 /**

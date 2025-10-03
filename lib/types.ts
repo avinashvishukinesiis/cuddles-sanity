@@ -15,6 +15,11 @@ export interface HeroSection {
     link: string
   }
   backgroundImage?: SanityImageSource
+  decorations?: Array<{
+    name: string
+    image: SanityImageSource
+    position: string
+  }>
 }
 
 export interface AboutUs {

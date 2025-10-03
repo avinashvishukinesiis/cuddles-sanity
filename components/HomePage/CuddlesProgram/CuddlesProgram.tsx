@@ -1,8 +1,28 @@
 import React from 'react'
 import Image from 'next/image'
+import { urlFor } from '@/lib/sanity'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
-const CuddlesProgram = () => {
-  const content = [
+interface CuddlesProgramProps {
+  cuddlesData?: {
+    title?: string
+    subtitle?: string
+    sunDecoration?: SanityImageSource
+    programItems?: Array<{
+      title: string
+      description: string
+      image?: SanityImageSource
+      order?: number
+    }>
+  } | null
+  awardsData?: {
+    title?: string
+    awards?: string[]
+  } | null
+}
+
+const CuddlesProgram: React.FC<CuddlesProgramProps> = ({ cuddlesData, awardsData }) => {
+  const defaultContent = [
     {
       img: './cp1.png',
       title: 'Preschool Programs',
@@ -25,12 +45,15 @@ const CuddlesProgram = () => {
     },
   ]
 
-  const award = [
+  const defaultAwards = [
     "Brainfeed",
-    "Parent’s choice awards",
+    "Parent's choice awards",
     "Education today",
     "India Preschool Jury Awards"
   ]
+
+  const content = cuddlesData?.programItems || defaultContent
+  const awards = awardsData?.awards || defaultAwards
   return (
     <section>
       <svg xmlns="http://www.w3.org/2000/svg" className="relative -mb-1" viewBox="0 0 1440 320"><path fill="#9769A5" fillOpacity="1" d="M0,224L40,218.7C80,213,160,203,240,197.3C320,192,400,192,480,202.7C560,213,640,235,720,240C800,245,880,235,960,218.7C1040,203,1120,181,1200,192C1280,203,1360,245,1400,266.7L1440,288L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
@@ -40,29 +63,44 @@ const CuddlesProgram = () => {
           <h2
             className="text-center text-balance text-5xl relative inline font-extrabold"
           >
-            Cuddles Program
-            <Image src="./sun.svg" alt="Sun vector" className="absolute top-[-60] left-[-100] " width={80} height={80} />
+            {cuddlesData?.title || 'Cuddles Program'}
+            {cuddlesData?.sunDecoration ? (
+              <Image
+                src={urlFor(cuddlesData.sunDecoration).url()}
+                alt="Sun vector"
+                className="absolute top-[-60] left-[-100]"
+                width={80}
+                height={80}
+              />
+            ) : (
+              <Image src="./sun.svg" alt="Sun vector" className="absolute top-[-60] left-[-100] " width={80} height={80} />
+            )}
           </h2>
           <h3 className="text-center text-balance text-2xl relative font-medium"
-          >What we offer ?</h3>
+          >{cuddlesData?.subtitle || 'What we offer ?'}</h3>
         </header>
         <div className='grid grid-cols-1 grid-rows-4 md:grid-cols-4 md:grid-rows-1 gap-4 p-4 border border-white rounded-2xl'>
           {content.map((item, index) => {
+            const imageUrl = 'image' in item && item.image
+              ? urlFor(item.image).url()
+              : 'img' in item ? item.img : './placeholder.png'
+            const description = 'description' in item ? item.description : 'para' in item ? item.para : ''
+
             return (
               <div key={index} className='flex flex-col gap-6 text-white text-center'>
-                <Image src={item.img} alt={item.title} className='w-full rounded-2xl' width={400} height={300} />
+                <Image src={imageUrl} alt={item.title} className='w-full rounded-2xl' width={400} height={300} />
                 <h3 className='text-2xl font-bold'>{item.title}</h3>
-                <p className='text-[14px] px-4'>{item.para}</p>
+                <p className='text-[14px] px-4'>{description}</p>
               </div>
             )
           })}
         </div>
         <div className='flex flex-col gap-4 w-full'>
           <h2 className="text-center text-balance text-5xl font-extrabold mt-8 text-white">
-            We Are Proud Winners Of
+            {awardsData?.title || 'We Are Proud Winners Of'}
           </h2>
           <div className='flex md:flex-row flex-col justify-around items-center w-full gap-6'>
-              {award.map((item,index)=>{
+              {awards.map((item,index)=>{
                 return(
                   <p key={index} className='text-white text-lg'>{item}</p>
                 )

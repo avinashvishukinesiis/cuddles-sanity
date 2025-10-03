@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { ImCross } from "react-icons/im";
-import { client, urlFor } from "@/lib/sanity";
+import { urlFor } from "@/lib/sanity";
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 
@@ -19,9 +19,11 @@ interface IncludeSection {
     includeItems: IncludeItem[]
 }
 
-const Include = () => {
-    const [includeData, setIncludeData] = useState<IncludeSection | null>(null)
-    const [, setLoading] = useState(true)
+interface IncludeProps {
+    includeData?: IncludeSection | null
+}
+
+const Include: React.FC<IncludeProps> = ({ includeData }) => {
 
     // Fallback content
     const defaultContent = [
@@ -51,28 +53,6 @@ const Include = () => {
             exclude: 'Generic or outdated lesson plans',
         },
     ]
-
-    useEffect(() => {
-        const fetchIncludeData = async () => {
-            try {
-                const data = await client.fetch(`*[_type == "homePage"][0].includeSection{
-                    title,
-                    description,
-                    includeItems[]{
-                        include,
-                        exclude,
-                        icon
-                    }
-                }`)
-                setIncludeData(data)
-            } catch (error) {
-                console.error('Error fetching include data:', error)
-            } finally {
-                setLoading(false)
-            }
-        }
-        fetchIncludeData()
-    }, [])
 
     const content = includeData?.includeItems && includeData.includeItems.length > 0
         ? includeData.includeItems.map((item, index) => ({

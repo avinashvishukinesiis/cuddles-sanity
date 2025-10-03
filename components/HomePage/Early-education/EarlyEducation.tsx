@@ -1,11 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import { IoIosStar } from "react-icons/io";
-import { useEffect, useState } from "react";
-import { autoFetchHomePage } from "@/lib/auto-data-fetcher";
 import { urlFor } from "@/lib/sanity";
-import { HomePage } from "@/lib/types";
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 const defaultFeatures = [
   "Holistic Development",
@@ -14,28 +10,25 @@ const defaultFeatures = [
   "Engaging Curriculum",
 ]
 
-export function EarlyEducationSection() {
-  const [sectionData, setSectionData] = useState<HomePage['earlyEducationSection'] | null>(null);
+interface EarlyEducationSection {
+  title: string
+  description: string
+  image?: SanityImageSource
+  features?: Array<{ title: string } | string>
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const homePageData = await autoFetchHomePage();
-        setSectionData(homePageData?.earlyEducationSection || null);
-      } catch (error) {
-        console.error('Error fetching early education data:', error);
-      }
-    };
+interface EarlyEducationProps {
+  earlyEducationData?: EarlyEducationSection | null
+}
 
-    fetchData();
-  }, []);
+export function EarlyEducationSection({ earlyEducationData }: EarlyEducationProps) {
   const content = {
-    title: sectionData?.title || "Why Early Education Matters ?",
-    description: sectionData?.description || "The first five years of a child's life are when 90% of brain development occurs. Active learning and creative experiences don't just teach skills but they build the neural pathways that determine how children think, learn, and approach challenges for life. At Cuddles, we harness this incredible potential through purposeful play, hands-on exploration, and creative expression.",
-    features: sectionData?.features
-      ? sectionData.features.map((feature: { title: string } | string) => typeof feature === 'string' ? feature : feature.title)
+    title: earlyEducationData?.title || "Why Early Education Matters ?",
+    description: earlyEducationData?.description || "The first five years of a child's life are when 90% of brain development occurs. Active learning and creative experiences don't just teach skills but they build the neural pathways that determine how children think, learn, and approach challenges for life. At Cuddles, we harness this incredible potential through purposeful play, hands-on exploration, and creative expression.",
+    features: earlyEducationData?.features
+      ? earlyEducationData.features.map((feature: { title: string } | string) => typeof feature === 'string' ? feature : feature.title)
       : defaultFeatures,
-    image: sectionData?.image
+    image: earlyEducationData?.image
   };
 
   return (

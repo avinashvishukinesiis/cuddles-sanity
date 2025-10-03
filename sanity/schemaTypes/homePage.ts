@@ -82,6 +82,43 @@ export const homePage = defineType({
               initialValue: '/curriculum'
             }
           ]
+        },
+        {
+          name: 'decorations',
+          title: 'Hero Decorations',
+          type: 'array',
+          description: 'Decorative images shown around the hero title (star.svg, plane_vector.svg)',
+          of: [{
+            type: 'object',
+            fields: [
+              {
+                name: 'name',
+                title: 'Decoration Name',
+                type: 'string',
+                description: 'e.g., "star", "plane"'
+              },
+              {
+                name: 'image',
+                title: 'Decoration Image',
+                type: 'image',
+                options: {
+                  hotspot: true
+                }
+              },
+              {
+                name: 'position',
+                title: 'Position',
+                type: 'string',
+                description: 'CSS position identifier',
+                options: {
+                  list: [
+                    { title: 'Star (top-right)', value: 'star-top-right' },
+                    { title: 'Plane (bottom-left)', value: 'plane-bottom-left' }
+                  ]
+                }
+              }
+            ]
+          }]
         }
       ]
     },
